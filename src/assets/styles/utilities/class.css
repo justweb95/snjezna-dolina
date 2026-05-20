@@ -1,5 +1,6 @@
 .doli-container {
   display: block;
-  max-width: 1279px;
+  width: 95%;
+  max-width: 1560px;
   margin: 0 auto;
 }
