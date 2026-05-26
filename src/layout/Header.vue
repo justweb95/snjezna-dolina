@@ -42,6 +42,16 @@
     .icon-holder {
       display: flex;
       gap: 8px;
+      .phone-icon, .hamburger-menu {
+        transition: .3s ease;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        &:hover {
+          transform: scale(1.05);
+          cursor: pointer;
+          border: 1px solid #2FB6EF;
+        }
+      }
     }
   }
 </style>

@@ -74,14 +74,43 @@
 <style scoped>
   .hero-section {
     padding: 24px 0px;
+
     .doli-container {
       display: flex;
       gap: 24px;
+
       .hero-content {
         flex: 1 0 49%;
         max-width: 768px;
         display: flex;
         flex-direction: column;
+
+        > *:not(.header-main) {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: textReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          }
+
+        .badge {
+          animation-delay: 0.1s;
+        }
+
+        .hero-title {
+          animation-delay: 0.2s;
+        }
+
+        .sub-content {
+          animation-delay: 0.3s;
+        }
+
+        .hero-text {
+          animation-delay: 0.4s;
+        }
+
+        .hero-score {
+          animation-delay: 0.5s;
+        }
+
         .badge {
           width: fit-content;
           margin: auto auto 0;
@@ -93,21 +122,27 @@
           border: 1px solid #E4E9ED;
           border-radius: 40px;
         }
+
         .hero-title {
           margin: 24px 0 28px;
           text-transform: uppercase;
           text-align: center;
         }
+
         .sub-content {
           font-weight: 700;
           font-size: 18px;
           line-height: 23px;
           text-align: center;
         }
+
         .hero-text {
+          display: block;
+          max-width: 595px;
           text-align: center;
-          margin-top: auto;
+          margin: auto auto 32px;
         }
+
         .hero-score {
           display: flex;
           justify-content: flex-end;
@@ -116,15 +151,18 @@
           padding: 24px 32px;
           border: 1px solid #E4E9ED;
           border-radius: 20px;
+
           .guest-favorite {
             margin-right: auto;
           }
+
           .guest-return {
             h3 {
               font-size: 18px;
               line-height: 32px;
               font-weight: 700;
             }
+
             p {
               font-size: 12px;
               line-height: auto;
@@ -133,22 +171,47 @@
           }
         }
       }
+
       .hero-image-holder {
         position: relative;
         flex: 1 0 49%;
         max-width: 768px;
-
         border-radius: 20px;
         overflow: hidden;
+
+        perspective: 1200px;
+
         .hero-img {
           width: 100%;
           height: auto;
           display: block;
+
+          opacity: 0;
+          filter: grayscale(100%);
+          transform:
+            rotateZ(-10deg)
+            scale(1.1);
+
+          transform-origin: center center;
+
+          animation: imageEntry 1.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation-delay: 0.2s;
+
+          will-change: transform, filter, opacity;
         }
+
         .map-icon {
           position: absolute;
           bottom: 32px;
           right: 32px;
+          transition: .3s ease;
+          border-radius: 50%;
+          border: 1px solid transparent;
+          &:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+            border: 1px solid #2FB6EF;
+          }
         }
       }
     }

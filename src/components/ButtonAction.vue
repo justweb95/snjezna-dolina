@@ -54,6 +54,7 @@
   }
 
   &.primary {
+    margin: 40px auto 0;
     background-color: #13202E;
     color: #fff;
 

@@ -1,11 +1,16 @@
 <script setup lang="ts">
   import HeroSection from "./sections/HeroSection.vue";
+  import SubheroSection from "./sections/SubheroSection.vue";
+  import AptsSection from "./sections/AptsSection.vue";
+
 </script>
 
 <template>
   <main>
     <HeroSection />
-  </main>
+    <SubheroSection />
+    <AptsSection />
+</main>
 </template>
 
 <style scoped>
