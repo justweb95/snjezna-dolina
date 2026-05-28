@@ -25,32 +25,48 @@
   </a>
 </template>
 
-<style scoped>  
+<style scoped>
 
 .btn {
+  position: relative;
   display: flex;
   width: fit-content;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
 
-  padding: 4px 36px 4px 4px;
+  padding: 18px 36px 18px 12px;
   border-radius: 999px;
 
   font-weight: 600;
   text-decoration: none;
 
-  transition: background-color .7s ease, color 0.3s ease;
+  overflow: hidden;
+
+  transition:
+    background-color .7s ease,
+    color .3s ease;
 
   .btn-text {
-    transition: transform .7s cubic-bezier(0.22, 1, 0.36, 1);
+    padding-left: 70px;
+
+    transition:
+      transform .7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .button-icon {
+    position: absolute;
+    left: 4px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
     border-radius: 50%;
     background-color: #fff;
     padding: 14px 18px;
 
-    transition: transform .7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition:
+      left .7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform .7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &.primary {
@@ -63,16 +79,17 @@
       color: #fff;
     }
 
-    /* ICON goes right */
+    /* ICON moves to far right */
     &:hover .button-icon {
-      transform: translateX(222px) rotate(360deg);
+      left: calc(100% - 6px);
+      transform: translate(-100%, -50%) rotate(360deg);
     }
 
     /* TEXT moves left */
     &:hover .btn-text {
-      transform: translateX(-50px);
+      transform: translateX(-40px);
     }
   }
 }
-  
+
 </style>

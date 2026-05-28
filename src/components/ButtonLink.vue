@@ -5,7 +5,7 @@
     type: {
       type: String,
       default: 'primary',
-      validator: (value: string) => ['primary', 'secondary'].includes(value),
+        validator: (value) => ['primary', 'secondary'].includes(value),
     },
   });
 
