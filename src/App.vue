@@ -5,6 +5,8 @@
   import CharacteristicsComponent from "./sections/CharacteristicsComponent.vue";
   import ReviewsSection from "./sections/ReviewsSection.vue";
   import SpecialSection from "./sections/SpecialSection.vue";
+  import FAQSection from "./sections/FAQSection.vue";
+  import GallerySection from "./sections/GallerySection.vue";
 </script>
 
 <template>
@@ -15,7 +17,9 @@
     <CharacteristicsComponent />
     <ReviewsSection />
     <SpecialSection />
-</main>
+    <FAQSection />
+    <GallerySection />
+  </main>
 </template>
 
 <style scoped>

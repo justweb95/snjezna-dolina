@@ -120,6 +120,87 @@
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    .subhero-section {
+      .subhero-holder {
+        flex-direction: column;
+        min-height: auto;
+
+        .subhero-content,
+        .subhero-legend {
+          flex: 1 1 auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .subhero-section {
+      padding: 56px 0 60px;
+
+      .subhero-holder {
+        gap: 48px;
+
+        .subhero-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+
+          .subhero-title {
+            margin: 0;
+            font-size: 18px;
+            line-height: 140%;
+            text-align: center;
+          }
+
+          .subhero-subtitle {
+            margin: 0;
+            max-width: 358px;
+            font-size: 36px;
+            line-height: 140%;
+            text-align: center;
+          }
+        }
+
+        .subhero-legend {
+          border-radius: 20px;
+          overflow: hidden;
+
+          .legend-item {
+            padding: 20px 24px;
+            gap: 16px;
+            border-bottom: 1px solid #E4E9ED;
+
+            &:last-child {
+              border-bottom: 0;
+            }
+
+            .legend-title {
+              width: 96px;
+              font-size: 32px;
+              line-height: 40px;
+            }
+
+            .legend-text {
+              max-width: 240px;
+              font-size: 18px;
+              line-height: 140%;
+            }
+
+            .legend-icon {
+              width: 56px;
+              height: 56px;
+              max-width: 56px;
+              max-height: 56px;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>
 
 

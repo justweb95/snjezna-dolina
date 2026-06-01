@@ -1,5 +1,5 @@
 <script setup>
-  import CalendarIcon from '../assets/images/icons/calendar_check.svg';
+  import CalendarIconBlue from '../assets/images/icons/calendar_check_blue.svg';
 
   const props = defineProps({
     isOpen: {
@@ -21,23 +21,39 @@
       <div class="availability-modal" role="dialog" aria-modal="true" aria-labelledby="availability-modal-title">
         <div class="availability-modal-header">
           <div class="availability-modal-header-main">
-            <img :src="CalendarIcon" alt="Calendar icon" class="availability-modal-icon" />
+            <img :src="CalendarIconBlue" alt="Calendar icon" class="availability-modal-icon" />
             <h3 id="availability-modal-title" class="availability-modal-title">Dostupnost</h3>
           </div>
           <button type="button" class="availability-modal-close" @click="closeModal" aria-label="Zatvori popup">
-            <span>X</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 19L18.9987 5.00102" stroke="#13202E" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="#13202E" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+            </svg>
           </button>
         </div>
 
         <div class="availability-modal-content">
-          <p class="availability-modal-subtitle">Izaberite datume boravka</p>
-
-          <!-- Placeholder kalendar, bez funkcionalnosti za sada. -->
           <div class="availability-calendar-placeholder" aria-label="Kalendar uskoro">
             <div class="availability-calendar-top">
-              <button type="button" class="availability-calendar-nav" aria-label="Prethodni mesec">&lt;</button>
+              <button type="button" class="availability-calendar-nav" aria-label="Prethodni mesec">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 20L8 12L16 4" stroke="#0D1F4C" stroke-width="2"/>
+                </svg>
+              </button>
               <p class="availability-calendar-month">Septembar 2026</p>
-              <button type="button" class="availability-calendar-nav" aria-label="Sledeci mesec">&gt;</button>
+              <button type="button" class="availability-calendar-nav" aria-label="Sledeci mesec">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 20L16 12L8 4" stroke="#0D1F4C" stroke-width="2"/>
+                </svg>
+              </button>
             </div>
             <div class="availability-calendar-grid availability-calendar-grid--days">
               <span>PON</span>
@@ -63,6 +79,22 @@
               <span class="is-available">12</span>
               <span class="is-available">13</span>
               <span class="is-available">14</span>
+              <span class="is-available">15</span>
+              <span class="is-available">16</span>
+              <span class="is-available">17</span>
+              <span class="is-available">18</span>
+              <span class="is-available">19</span>
+              <span class="is-available">20</span>
+              <span class="is-available">21</span>
+              <span class="is-available">22</span>
+              <span class="is-available">23</span>
+              <span class="is-available">24</span>
+              <span class="is-available">25</span>
+              <span class="is-available">26</span>
+              <span class="is-available">27</span>
+              <span class="is-available">28</span>
+              <span class="is-available">29</span>
+              <span class="is-available">30</span>
             </div>
           </div>
         </div>
@@ -150,16 +182,7 @@
     gap: 20px;
   }
 
-  .availability-modal-subtitle {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    color: #081B35;
-  }
-
   .availability-calendar-placeholder {
-    border: 1px solid #E4E9ED;
     border-radius: 16px;
     padding: 20px;
     display: flex;
@@ -169,8 +192,9 @@
 
   .availability-calendar-top {
     display: flex;
+    gap: 20px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .availability-calendar-nav {
@@ -245,7 +269,7 @@
 
   .availability-modal-action {
     flex: 1;
-    height: 56px;
+    height: 54px;
     border: none;
     border-radius: 100px;
     font-style: normal;
@@ -254,14 +278,25 @@
     line-height: 24px;
     color: #FFFFFF;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
 
   .availability-modal-action--close {
     background: #13202E;
+    border: 2px solid #13202E;
+    &:hover {
+      color: #13202E;
+      background: #FFFFFF;
+    }
   }
 
   .availability-modal-action--call {
     background: #2FB6EF;
+    border: 2px solid #2FB6EF;
+    &:hover {
+      color: #2FB6EF;
+      background: #FFFFFF;
+    }
   }
 
   @media (max-width: 768px) {
@@ -272,11 +307,6 @@
 
     .availability-modal-header {
       padding-bottom: 20px;
-    }
-
-    .availability-modal-subtitle {
-      font-size: 18px;
-      line-height: 22px;
     }
 
     .availability-modal-actions {

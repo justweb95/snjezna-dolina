@@ -216,4 +216,106 @@
       }
     }
   }
+
+  @media (max-width: 1024px) {
+    .hero-section {
+      .doli-container {
+        flex-direction: column;
+
+        .hero-content,
+        .hero-image-holder {
+          flex: 1 1 auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 16px 0;
+
+      .doli-container {
+        gap: 24px;
+
+        .hero-content {
+          .badge {
+            padding: 8px 24px;
+            font-size: 18px;
+            line-height: 23px;
+          }
+
+          .hero-title {
+            margin: 20px 0;
+            font-size: 36px;
+            line-height: 140%;
+          }
+
+          .sub-content {
+            width: min(100%, 327px);
+            margin: 0 auto;
+            padding: 7px 24px;
+            font-size: 16px;
+            line-height: 22px;
+            background: #FAFAFA;
+            border-radius: 6px;
+          }
+
+          :deep(.btn.primary) {
+            width: min(100%, 284px);
+            margin: 12px auto 0;
+            padding: 4px 24px 4px 4px;
+
+            .button-icon {
+              width: 40px;
+              height: 40px;
+              padding: 10px 13px;
+            }
+
+            .btn-text {
+              font-size: 18px;
+              line-height: 24px;
+              padding-left: 52px;
+            }
+          }
+
+          .hero-text {
+            max-width: 358px;
+            margin: 16px auto 24px;
+            font-size: 16px;
+            line-height: 140%;
+          }
+
+          .hero-score {
+            padding: 16px;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .guest-favorite {
+              width: 100%;
+              max-width: 180px;
+              margin: 0 auto;
+            }
+          }
+        }
+
+        .hero-image-holder {
+          min-height: 400px;
+
+          .hero-img {
+            height: 400px;
+            object-fit: cover;
+          }
+
+          .map-icon {
+            width: 48px;
+            height: 48px;
+            right: 20px;
+            bottom: 20px;
+          }
+        }
+      }
+    }
+  }
 </style>

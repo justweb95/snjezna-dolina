@@ -90,6 +90,32 @@
       transform: translateX(-40px);
     }
   }
+  
+  &.secondary {
+    margin: 40px auto 0;
+    background-color: #fff;
+    color: #13202E;
+
+    .button-icon {
+      background-color: #13202E;
+    }
+    
+    &:hover {
+      background-color: #2FB6EF;
+      color: #fff;
+    }
+
+    /* ICON moves to far right */
+    &:hover .button-icon {
+      left: calc(100% - 6px);
+      transform: translate(-100%, -50%) rotate(360deg);
+    }
+
+    /* TEXT moves left */
+    &:hover .btn-text {
+      transform: translateX(-40px);
+    }
+  }
 }
 
 </style>

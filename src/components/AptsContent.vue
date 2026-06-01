@@ -257,6 +257,7 @@
           transition: transform 0.3s ease;
           img {
             vertical-align: middle;
+            cursor: pointer;
           }
         }
         &:hover {

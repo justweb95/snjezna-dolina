@@ -1,5 +1,5 @@
 <script setup>
-  import MoneyWavy from '../assets/images/icons/money_wavy_small.svg';
+  import MoneyWavyBlue from '../assets/images/icons/money_wavy_blue.svg';
 
   const props = defineProps({
     isOpen: {
@@ -21,11 +21,22 @@
       <div class="pricing-modal" role="dialog" aria-modal="true" aria-labelledby="pricing-modal-title">
         <div class="pricing-modal-header">
           <div class="pricing-modal-header-main">
-            <img :src="MoneyWavy" alt="Money icon" class="pricing-modal-icon" />
+            <img :src="MoneyWavyBlue" alt="Money icon" class="pricing-modal-icon" />
             <h3 id="pricing-modal-title" class="pricing-modal-title">Cenovnik</h3>
           </div>
           <button type="button" class="pricing-modal-close" @click="closeModal" aria-label="Zatvori popup">
-            <span>X</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 19L18.9987 5.00102" stroke="#13202E" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 19L18.9987 5.00102" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="#13202E" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+              <path d="M5 5L18.9987 18.999" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+            </svg>
           </button>
         </div>
 
@@ -222,14 +233,25 @@
     line-height: 24px;
     color: #FFFFFF;
     cursor: pointer;
+    transition: all 0.3s ease;  
   }
 
   .pricing-modal-action--close {
     background: #13202E;
+    border: 2px solid #13202E;
+    &:hover {
+      color: #13202E;
+      background: #FFFFFF;
+    }
   }
 
   .pricing-modal-action--call {
     background: #2FB6EF;
+    border: 2px solid #2FB6EF;
+    &:hover {
+      color: #2FB6EF;
+      background: #FFFFFF;
+    }
   }
 
   @media (max-width: 768px) {
