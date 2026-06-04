@@ -77,5 +77,15 @@
         }
       }
     }
+  @media (max-width: 1024px) {
+    .doli-container {
+      .apts-list {
+        .single-apt {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
   }
+}
 </style>

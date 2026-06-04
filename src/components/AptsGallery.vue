@@ -375,11 +375,19 @@ onBeforeUnmount(() => {
     opacity: 1;
     transform: translateY(0);
   }
+  
+  @media (max-width: 1024px) {
+    .apts-gallery {
+      order: -1;
+      max-width: 100%;
+      flex: 1 0 100%;
+    }
+  }
 
   @media (max-width: 960px) {
     .apts-gallery {
       height: 31.25rem;
-      padding: 1.5rem;
+      /* padding: 1.5rem; */
     }
   }
 
@@ -387,7 +395,7 @@ onBeforeUnmount(() => {
     .apts-gallery {
       max-width: 100%;
       height: 25rem;
-      padding: 1rem;
+      /* padding: 1rem; */
       gap: 0.75rem;
 
       .gallery-viewport {

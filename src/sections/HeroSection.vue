@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <section class="hero-section">
+  <section id="hero" class="hero-section">
     <div class="doli-container">
       <div class="hero-content">
         <Header />

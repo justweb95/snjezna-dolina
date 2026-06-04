@@ -277,4 +277,16 @@
     }
   }
 
+  @media (max-width: 1024px) {
+    .apts-content {
+      max-width: 100%;
+      flex: 1 0 100%;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .apts-content {
+      padding: 32px 20px;
+    }
+  }
 </style>

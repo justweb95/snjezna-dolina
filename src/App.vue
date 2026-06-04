@@ -7,6 +7,8 @@
   import SpecialSection from "./sections/SpecialSection.vue";
   import FAQSection from "./sections/FAQSection.vue";
   import GallerySection from "./sections/GallerySection.vue";
+  import ContactSection from "./sections/ContactSection.vue";
+  import Footer from "./layout/Footer.vue";
 </script>
 
 <template>
@@ -19,6 +21,8 @@
     <SpecialSection />
     <FAQSection />
     <GallerySection />
+    <ContactSection />
+    <Footer />
   </main>
 </template>
 
