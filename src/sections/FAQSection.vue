@@ -54,16 +54,15 @@
 <template>
   <section class="faq-section">
     <div class="doli-container faq-container">
-      <div class="faq-section-heading">
+      <div id="faq" class="faq-section-heading">
         <div class="faq-kicker">
-          <span class="faq-kicker-dot"></span>
           <span>FAQ</span>
         </div>
         <h2 class="faq-title">Sve što treba da znate o našim apartmanima</h2>
         <ButtonAction
           type="primary"
           text="Rezerviši odmah"
-          action="#apartmans"
+          action="#apts"
         />
       </div>
 
@@ -126,22 +125,44 @@
         gap: 12px;
 
         .faq-kicker {
+          position: relative;
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 0;
+          margin-left: 20px;
           font-family: 'Plus Jakarta Sans';
           font-size: 18px;
           font-weight: 400;
           line-height: 1.4;
           color: #13202E;
-        }
 
-        .faq-kicker-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: #13202E;
-          flex: none;
+          &::before {
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            border-radius: 50%;
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: #13202E;
+          }
+
+          &::after {
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transform-origin: center;
+            animation: titleDotPop 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+            content: '';
+            border-radius: 50%;
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: #13202E;
+          }
         }
 
         .faq-title {
@@ -303,6 +324,25 @@
           font-size: 44px;
         }
       }
+    }
+  }
+
+  @keyframes titleDotPop {
+    0% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.7;
+    }
+
+    70%,
+    100% {
+      transform: translateY(-50%) scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-kicker::after {
+      animation: none;
     }
   }
 

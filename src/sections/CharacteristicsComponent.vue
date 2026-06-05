@@ -70,7 +70,7 @@
       <div class="characteristics-wrapper">
         <div class="characteristics-heading">
           <h2 class="characteristics-section-title">Karakteristike</h2>
-          <h3 class="characteristics-section-subtitle">Opremljenost apartmana</h3>
+          <h3 id="characteristics" class="characteristics-section-subtitle">Opremljenost apartmana</h3>
         </div>
 
         <div class="characteristics-content">
@@ -162,6 +162,21 @@
         height: 8px;
         background-color: #13202E;
       }
+
+      &::after {
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: center;
+        animation: titleDotPopGlobal 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        content: '';
+        border-radius: 50%;
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: #13202E;
+      }
     }
 
     .characteristics-section-subtitle {
@@ -229,6 +244,12 @@
       align-items: stretch;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .characteristics-section-title::after {
+        animation: none;
+      }
+    }
+
     .additional-characteristics {
       display: flex;
       flex-direction: column;
@@ -290,49 +311,63 @@
       color: #081B35;
     }
     @media (max-width: 1200px) {
-        .main-characteristics {
-          grid-template-columns: 1fr;
-        }
-  
-        .additional-characteristics-layout {
-          grid-template-columns: 1fr;
-        }
+      .main-characteristics {
+        grid-template-columns: 1fr;
+      }
+
+      .additional-characteristics-layout {
+        grid-template-columns: 1fr;
+      }
     }
-    @media (max-width: 768px) {}
+
+    @media (max-width: 768px) {
       padding: 80px 0px;
-  
+
       .characteristics-wrapper {
         gap: 40px;
       }
-  
+
       .characteristics-section-title {
         font-size: 18px;
       }
-  
+
       .characteristics-section-subtitle {
         font-size: 34px;
         line-height: 44px;
       }
-  
+
       .main-characteristics-item,
       .additional-characteristics-item,
       .featured-characteristic {
         padding: 20px;
       }
-  
+
       .main-characteristics-item {
         gap: 16px;
       }
-  
+
       .main-char-item-text {
         font-size: 20px;
       }
-  
+
       .additional-char-item-text,
       .featured-characteristic-text {
         font-size: 18px;
         line-height: 24px;
       }
     }
-  
+  }
+
+  @keyframes titleDotPopGlobal {
+    0% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.7;
+    }
+
+    70%,
+    100% {
+      transform: translateY(-50%) scale(2.6);
+      opacity: 0;
+    }
+  }
 </style>

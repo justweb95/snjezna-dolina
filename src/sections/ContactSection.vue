@@ -35,7 +35,7 @@
 <template>
   <section class="contact-section">
     <div class="contact-container doli-container">
-      <h2 class="contact-title">Kontakt & Lokacija</h2>
+      <h2 id="location" class="contact-title">Kontakt & Lokacija</h2>
       <p class="contact-description">Kontaktirajte nas</p>
       <ul class="list-of-contacts">
         <li class="list-item">
@@ -97,6 +97,21 @@
         left: -20px;
         top: 50%;
         transform: translateY(-50%);
+        content: '';
+        border-radius: 50%;
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: #B9C1CA;
+      }
+
+      &::after {
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: center;
+        animation: titleDotPopGlobal 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
         content: '';
         border-radius: 50%;
         display: block;
@@ -182,6 +197,25 @@
     }
   }
 
+  @keyframes titleDotPop {
+    0% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.7;
+    }
+
+    70%,
+    100% {
+      transform: translateY(-50%) scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-title::after {
+      animation: none;
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 56px 0 16px;
     .contact-container {
@@ -217,6 +251,19 @@
     .map-wrapper {
       height: 400px;
     }
+  }
+}
+
+@keyframes titleDotPopGlobal {
+  0% {
+    transform: translateY(-50%) scale(1);
+    opacity: 0.7;
+  }
+
+  70%,
+  100% {
+    transform: translateY(-50%) scale(2.6);
+    opacity: 0;
   }
 }
 

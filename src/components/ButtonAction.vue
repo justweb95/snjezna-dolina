@@ -5,22 +5,30 @@
     type: {
       type: String,
       default: 'primary',
-      validator: (value) => ['primary', 'secondary'].includes(value),
+      validator: (value) => ['primary', 'secondary', 'button-phone'].includes(value),
     },
   });
 
   import buttonIcon from '../assets/images/home/button-icon.svg';
   import buttonIconWhite from '../assets/images/home/button-icon-white.svg';
-
+  
+  import buttonPhoneIcon from '../assets/images/home/phone-icon.svg';
 
 </script>
 
 <template>
-  <a :href="btnProps.action" :class="['btn', btnProps.type]">
+  <a
+    :href="btnProps.action"
+    :class="[
+      'btn',
+      btnProps.type === 'button-phone' ? 'primary' : btnProps.type,
+      { 'button-phone': btnProps.type === 'button-phone' },
+    ]"
+  >
     <img
-     :src="btnProps.type === 'primary' ? buttonIcon : buttonIconWhite" 
+     :src="btnProps.type === 'button-phone' ? buttonPhoneIcon : (btnProps.type === 'primary' ? buttonIcon : buttonIconWhite)" 
      class="button-icon"
-     alt="Button icon" />
+     :alt="btnProps.type === 'button-phone' ? 'Phone button icon' : 'Button icon'" />
     <span class="btn-text">{{ btnProps.text }}</span>
   </a>
 </template>
@@ -90,6 +98,12 @@
       transform: translateX(-40px);
     }
   }
+
+  &.button-phone {
+    .button-icon {
+      padding: 0;
+    }
+  }
   
   &.secondary {
     margin: 40px auto 0;
@@ -114,6 +128,36 @@
     /* TEXT moves left */
     &:hover .btn-text {
       transform: translateX(-40px);
+    }
+  }
+
+}
+
+@media (max-width: 550px) {
+  .btn.button-phone {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 50%;
+
+    .btn-text {
+      display: none;
+    }
+
+    .button-icon {
+      position: static;
+      left: auto;
+      top: auto;
+      transform: none;
+    }
+
+    &:hover .button-icon {
+      left: auto;
+      transform: none;
+    }
+
+    &:hover .btn-text {
+      transform: none;
     }
   }
 }

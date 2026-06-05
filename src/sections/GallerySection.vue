@@ -39,7 +39,6 @@
     <div class="gallery-container doli-container">
       <div class="gallery-heading-wrap">
         <div class="gallery-kicker-wrap">
-          <span class="gallery-kicker-dot"></span>
           <h2 class="gallery-section-title">Galerija</h2>
         </div>
 
@@ -53,7 +52,7 @@
         <ButtonAction
           type="secondary"
           text="Rezerviši odmah"
-          action="#apartmans"
+          action="#apts"
         />
       </div>
 
@@ -104,24 +103,46 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 12px;
-
-          .gallery-kicker-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #B9C1CA;
-            flex: none;
-          }
+          gap: 0;
 
           .gallery-section-title {
+            position: relative;
             margin: 0;
+            margin-left: 20px;
             font-family: 'Plus Jakarta Sans';
             font-style: normal;
             font-weight: 400;
             font-size: 20px;
             line-height: 140%;
             color: #B9C1CA;
+
+            &::before {
+              position: absolute;
+              left: -20px;
+              top: 50%;
+              transform: translateY(-50%);
+              content: '';
+              border-radius: 50%;
+              display: block;
+              width: 8px;
+              height: 8px;
+              background-color: #B9C1CA;
+            }
+
+            &::after {
+              position: absolute;
+              left: -20px;
+              top: 50%;
+              transform: translateY(-50%);
+              transform-origin: center;
+              animation: titleDotPop 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+              content: '';
+              border-radius: 50%;
+              display: block;
+              width: 8px;
+              height: 8px;
+              background-color: #B9C1CA;
+            }
           }
         }
 
@@ -196,6 +217,25 @@
 
     to {
       transform: translateX(calc(-50% - 8px));
+    }
+  }
+
+  @keyframes titleDotPop {
+    0% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.7;
+    }
+
+    70%,
+    100% {
+      transform: translateY(-50%) scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-section-title::after {
+      animation: none;
     }
   }
 

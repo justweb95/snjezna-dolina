@@ -153,7 +153,7 @@
 <template>
   <section class="reviews-section">
     <div class="reviews-container">
-      <div class="reviews-wrapper">
+      <div id="reviews" class="reviews-wrapper">
         <div class="reviews-summary">
           <div class="reviews-score-block">
             <span class="reviews-quote-mark reviews-quote-mark--left">
@@ -238,8 +238,8 @@
         </div>
 
         <div class="reviews-actions">
-          <button type="button" class="reviews-action reviews-action--primary">Napiši recenziju</button>
-          <button type="button" class="reviews-action reviews-action--secondary">Pogledaj više</button>
+          <a href="https://www.google.com/search?sca_esv=b0606a0ae3ff7c6b&cs=1&output=search&kgmid=/g/11n68ywsvf&q=Snje%C5%BEna+dolina+Jahorina&shem=dlvsc,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=473ff600cd48dcef&utm_source=dlvsc,rimspwouoe,sh/x/loc/uni/m1/1#lrd=0x4758bf604e300939:0xfa0ab1ba13cdca76,1,,,," class="reviews-action reviews-action--primary">Napiši recenziju</a>
+          <a href="https://www.google.com/search?sca_esv=b0606a0ae3ff7c6b&cs=1&output=search&kgmid=/g/11n68ywsvf&q=Snje%C5%BEna+dolina+Jahorina&shem=dlvsc,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=473ff600cd48dcef&utm_source=dlvsc,rimspwouoe,sh/x/loc/uni/m1/1" class="reviews-action reviews-action--secondary">Pogledaj više</a>
         </div>
       </div>
     </div>
@@ -479,9 +479,9 @@
     }
 
     .reviews-action {
+      text-decoration: none;
       min-width: 200px;
-      height: 56px;
-      padding: 0px 32px;
+      padding: 16px 32px;
       border: none;
       border-radius: 80px;
       font-style: normal;

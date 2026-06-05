@@ -10,10 +10,9 @@
   <section class="apts-section">
     <div class="doli-container">
       <h2 class="apts-section-title">Karakteristike</h2>
-      <h3 class="apts-section-subtitle">Apartmani u ponudi</h3>
+      <h3 id="apts" class="apts-section-subtitle">Apartmani u ponudi</h3>
       
       <div class="apts-list">
-
         <!-- First Apartment -->
         <div class="single-apt">
           <AptsGallery :aptGallery="apartments[0].gallery" />
@@ -57,6 +56,21 @@
           height: 8px;
           background-color: #081B35;
         }
+
+        &::after {
+          position: absolute;
+          left: -20px;
+          top: 50%;
+          transform: translateY(-50%);
+          transform-origin: center;
+          animation: titleDotPopGlobal 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+          content: '';
+          border-radius: 50%;
+          display: block;
+          width: 8px;
+          height: 8px;
+          background-color: #081B35;
+        }
       }
       .apts-section-subtitle {
         font-style: normal;
@@ -86,6 +100,38 @@
         }
       }
     }
+  }
+
+  @keyframes titleDotPop {
+    0% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.7;
+    }
+
+    70%,
+    100% {
+      transform: translateY(-50%) scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .apts-section-title::after {
+      animation: none;
+    }
+  }
+}
+
+@keyframes titleDotPopGlobal {
+  0% {
+    transform: translateY(-50%) scale(1);
+    opacity: 0.7;
+  }
+
+  70%,
+  100% {
+    transform: translateY(-50%) scale(2.6);
+    opacity: 0;
   }
 }
 </style>

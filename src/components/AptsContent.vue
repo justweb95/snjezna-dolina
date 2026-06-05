@@ -103,12 +103,12 @@
       <ButtonAction 
         type="primary"
         text="Rezerviši"
-        action="#apartmans"
+        action="href='tel:+38162204003'"
       />
       <ButtonAction 
-        type="primary"
+        type="button-phone"
         text="Pozovi nas"
-        action="#apartmans"
+        action="href='tel:+38162204003'"
       />
     </div>
   </article>
@@ -287,6 +287,9 @@
   @media (max-width: 550px) {
     .apts-content {
       padding: 32px 20px;
+    }
+    .apt-cta {
+      justify-content: space-between;
     }
   }
 </style>
