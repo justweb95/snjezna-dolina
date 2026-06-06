@@ -79,7 +79,7 @@
 
   &.primary {
     margin: 40px auto 0;
-    background-color: #13202E;
+    background-color: #101C2A;
     color: #fff;
 
     &:hover {
@@ -108,10 +108,10 @@
   &.secondary {
     margin: 40px auto 0;
     background-color: #fff;
-    color: #13202E;
+    color: #101C2A;
 
     .button-icon {
-      background-color: #13202E;
+      background-color: #101C2A;
     }
     
     &:hover {

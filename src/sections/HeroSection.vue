@@ -61,11 +61,12 @@
           :src="heroImage" 
           alt="Hero image"
           class="hero-img"/>
-
+        <a href="#location">
           <img 
-          :src="mapIcon" 
-          alt="Map icon"
-          class="map-icon"/>
+            :src="mapIcon" 
+            alt="Map icon"
+            class="map-icon"/>
+        </a>
       </div>
     </div>
   </section>
@@ -140,7 +141,7 @@
           display: block;
           max-width: 595px;
           text-align: center;
-          margin: auto auto 32px;
+          margin: 48px auto auto;
         }
 
         .hero-score {
@@ -219,6 +220,9 @@
 
   @media (max-width: 1024px) {
     .hero-section {
+      .header-main {
+        margin-bottom: 48px;
+      }
       .doli-container {
         flex-direction: column;
 
@@ -280,23 +284,14 @@
           }
 
           .hero-text {
-            max-width: 358px;
-            margin: 16px auto 24px;
+            max-width: 100%;
             font-size: 16px;
             line-height: 140%;
+            margin: 48px auto 32px;
           }
 
           .hero-score {
-            padding: 16px;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-
-            .guest-favorite {
-              width: 100%;
-              max-width: 180px;
-              margin: 0 auto;
-            }
+            display: none;
           }
         }
 

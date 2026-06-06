@@ -343,6 +343,37 @@ onBeforeUnmount(() => {
       line-height: 1;
       cursor: pointer;
     }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 1001;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      transition: background 0.2s ease;
+      background: rgba(8, 27, 53, 0.6);
+
+      &:hover {
+        cursor: pointer;
+        background: rgba(8, 27, 53, 0.8);
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      &.gallery-arrow--previous {
+        left: 2rem;
+      }
+
+      &.gallery-arrow--next {
+        right: 2rem;
+      }
+    }
   }
 
   .gallery-fade-enter-active,
@@ -424,6 +455,16 @@ onBeforeUnmount(() => {
 
     .gallery-lightbox {
       padding: 1rem;
+
+      .gallery-arrow {
+        &.gallery-arrow--previous {
+          left: 0.75rem;
+        }
+
+        &.gallery-arrow--next {
+          right: 0.75rem;
+        }
+      }
     }
   }
 </style>

@@ -37,7 +37,14 @@ export const apartments = [
     gallery: [
       { src: apt11, alt: 'Apartman 1 - Slika 1' },
       { src: apt12, alt: 'Apartman 1 - Slika 2' },
-      { src: apt13, alt: 'Apartman 1 - Slika 3' }
+      { src: apt13, alt: 'Apartman 1 - Slika 3' },
+      { src: apt14, alt: 'Apartman 1 - Slika 4' },
+      { src: apt15, alt: 'Apartman 1 - Slika 5' },
+      { src: apt16, alt: 'Apartman 1 - Slika 6' },
+      { src: apt17, alt: 'Apartman 1 - Slika 7' },
+      { src: apt18, alt: 'Apartman 1 - Slika 8' },
+      { src: apt19, alt: 'Apartman 1 - Slika 9' },
+      { src: apt110, alt: 'Apartman 1 - Slika 10' }
     ]
   },
 
@@ -55,7 +62,14 @@ export const apartments = [
     gallery: [
       { src: apt21, alt: 'Apartman 2 - Slika 1' },
       { src: apt22, alt: 'Apartman 2 - Slika 2' },
-      { src: apt23, alt: 'Apartman 2 - Slika 3' }
+      { src: apt23, alt: 'Apartman 2 - Slika 3' },
+      { src: apt24, alt: 'Apartman 2 - Slika 4' },
+      { src: apt25, alt: 'Apartman 2 - Slika 5' },
+      { src: apt26, alt: 'Apartman 2 - Slika 6' },
+      { src: apt27, alt: 'Apartman 2 - Slika 7' },
+      { src: apt28, alt: 'Apartman 2 - Slika 8' },
+      { src: apt29, alt: 'Apartman 2 - Slika 9' },
+      { src: apt210, alt: 'Apartman 2 - Slika 10' }
     ]
   }
 ]

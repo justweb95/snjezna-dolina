@@ -160,7 +160,7 @@
         display: block;
         width: 8px;
         height: 8px;
-        background-color: #13202E;
+        background-color: #101C2A;
       }
 
       &::after {
@@ -175,7 +175,7 @@
         display: block;
         width: 8px;
         height: 8px;
-        background-color: #13202E;
+        background-color: #101C2A;
       }
     }
 
@@ -321,7 +321,7 @@
     }
 
     @media (max-width: 768px) {
-      padding: 80px 0px;
+      padding: 48px 0px 60px;
 
       .characteristics-wrapper {
         gap: 40px;

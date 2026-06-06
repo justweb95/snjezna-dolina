@@ -83,7 +83,7 @@
 
         <div class="pricing-modal-actions">
           <button type="button" class="pricing-modal-action pricing-modal-action--close" @click="closeModal">Zatvori</button>
-          <button type="button" class="pricing-modal-action pricing-modal-action--call">Pozovi nas</button>
+          <a href="tel:+38162204003" class="pricing-modal-action pricing-modal-action--call">Pozovi nas</a>
         </div>
       </div>
     </div>
@@ -224,7 +224,10 @@
 
   .pricing-modal-action {
     flex: 1;
-    height: 56px;
+    min-height: 53px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 100px;
     font-style: normal;
@@ -237,15 +240,18 @@
   }
 
   .pricing-modal-action--close {
-    background: #13202E;
-    border: 2px solid #13202E;
+    background: #101C2A;
+    border: 2px solid #101C2A;
     &:hover {
-      color: #13202E;
+      color: #101C2A;
       background: #FFFFFF;
     }
   }
 
   .pricing-modal-action--call {
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 0;
     background: #2FB6EF;
     border: 2px solid #2FB6EF;
     &:hover {
@@ -275,6 +281,36 @@
 
     .pricing-row {
       grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .pricing-row p:nth-child(2),
+    .pricing-row p:nth-child(3) {
+      text-align: left;
+    }
+  }
+    
+  @media (max-width: 768px) {
+    .pricing-modal {
+      padding: 12px;
+      gap: 24px;
+    }
+
+    .pricing-modal-header {
+      padding-bottom: 20px;
+    }
+
+    .pricing-modal-subtitle {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .pricing-modal-actions {
+      flex-direction: column;
+    }
+
+    .pricing-row {
+      grid-template-columns: 1.3fr 1fr 0.8fr;
       gap: 6px;
     }
 

@@ -101,6 +101,28 @@
       }
     }
   }
+  @media (max-width: 768px) {
+    padding: 48px 0;
+    .doli-container {
+      .apts-section-title {
+        font-size: 18px;
+      }
+      .apts-section-subtitle {
+        margin: 12px 0;
+        font-size: 36px;
+        line-height: 100%;
+      }
+      .apts-list {
+        margin-top: 48px;
+        gap: 48px;
+        .single-apt {
+          gap: 16px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
 
   @keyframes titleDotPop {
     0% {

@@ -279,7 +279,7 @@
       font-weight: 700;
       font-size: 96px;
       line-height: 80px;
-      color: #13202E;
+      color: #101C2A;
       opacity: 0.9;
     }
 
@@ -447,7 +447,7 @@
       font-weight: 700;
       font-size: 16px;
       line-height: 24px;
-      color: #13202E;
+      color: #101C2A;
     }
 
     .review-author-meta {
@@ -494,7 +494,7 @@
     }
 
     .reviews-action--primary {
-      background: #13202E;
+      background: #101C2A;
       color: #FFFFFF;
     }
 
@@ -514,10 +514,17 @@
 
   @media (max-width: 768px) {
     .reviews-section {
-      padding: 80px 0px;
+      padding: 60px 0px 48px; 
+      overflow-x: clip;
 
       .reviews-wrapper {
         gap: 40px;
+      }
+
+      .reviews-carousel-breakout {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       .reviews-summary {
@@ -543,6 +550,11 @@
 
       .reviews-metrics {
         gap: 20px;
+        .reviews-metric-card {
+          &:last-of-type {
+            display: none;
+          }
+        }
       }
 
       .reviews-metrics-divider {
@@ -556,12 +568,12 @@
       }
 
       .reviews-actions {
-        width: 100%;
-        flex-direction: column;
-      }
-
-      .reviews-action {
-        width: 100%;
+        width: 95%;
+        gap: 12px;
+        .reviews-action{
+          font-size: 16px;
+          padding: 12px 24px;
+        }
       }
     }
   }

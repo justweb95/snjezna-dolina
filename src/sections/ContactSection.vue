@@ -81,7 +81,7 @@
 
 .contact-section {
   padding: 100px 0 24px;
-  background-color: #13202E;
+  background-color: #101C2A;
   .contact-container {
     .contact-title {
       position: relative;

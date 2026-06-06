@@ -28,3 +28,206 @@
       transform: translateY(0px);
     }
   }
+
+  @keyframes sectionRevealScroll {
+    from {
+      opacity: 0;
+      transform: translate3d(var(--section-reveal-x, 0px), var(--section-reveal-y, 40px), 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes sectionRevealStretchUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 56px, 0) scaleX(0.94);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scaleX(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    html,
+    body,
+    main,
+    .apts-section,
+    .characteristics-section,
+    .reviews-section,
+    .special-section,
+    .faq-section,
+    .gallery-section,
+    .contact-section {
+      overflow-x: clip;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    .apts-section .apts-section-title,
+    .apts-section .apts-section-subtitle,
+    .characteristics-section .characteristics-heading,
+    .characteristics-section .main-characteristics,
+    .characteristics-section .additional-characteristics-layout,
+    .reviews-section .reviews-wrapper,
+    .faq-section .faq-section-heading,
+    .faq-section .faq-list-holder,
+    .gallery-section .gallery-heading-wrap,
+    .gallery-section .gallery-wrapper,
+    .contact-section .contact-title,
+    .contact-section .contact-description,
+    .contact-section .list-of-contacts,
+    .contact-section .map-wrapper,
+    .special-section .special-wrapper {
+      opacity: 0;
+      animation-name: sectionRevealScroll;
+      animation-duration: 1.05s;
+      animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+      animation-fill-mode: both;
+      animation-timeline: view(block);
+      animation-range: entry 22% cover 60%;
+      will-change: transform, opacity;
+    }
+
+    .apts-section .apts-section-title,
+    .apts-section .apts-section-subtitle,
+    .characteristics-section .characteristics-heading,
+    .characteristics-section .main-characteristics,
+    .characteristics-section .additional-characteristics-layout,
+    .gallery-section .gallery-heading-wrap,
+    .gallery-section .gallery-wrapper,
+    .contact-section .contact-title,
+    .contact-section .contact-description,
+    .contact-section .list-of-contacts,
+    .contact-section .map-wrapper,
+    .special-section .special-wrapper {
+      --section-reveal-x: 0px;
+      --section-reveal-y: 56px;
+    }
+
+    .apts-section .single-apt > :first-child {
+      opacity: 0;
+      --section-reveal-x: -72px;
+      --section-reveal-y: 0px;
+      transform: translate3d(var(--section-reveal-x), var(--section-reveal-y), 0);
+      animation: sectionRevealScroll 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view(block);
+      animation-range: entry 24% cover 62%;
+      will-change: transform, opacity;
+    }
+
+    .apts-section .single-apt > :last-child {
+      opacity: 0;
+      --section-reveal-x: 72px;
+      --section-reveal-y: 0px;
+      transform: translate3d(var(--section-reveal-x), var(--section-reveal-y), 0);
+      animation: sectionRevealScroll 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view(block);
+      animation-range: entry 24% cover 62%;
+      will-change: transform, opacity;
+    }
+
+    .characteristics-section .main-characteristics,
+    .characteristics-section .additional-characteristics-layout {
+      transform-origin: center;
+      animation-name: sectionRevealStretchUp;
+      animation-range: entry 20% cover 58%;
+    }
+
+    .reviews-section .reviews-wrapper {
+      --section-reveal-x: 0px;
+      --section-reveal-y: 56px;
+      animation-range: entry 22% cover 60%;
+    }
+
+    .gallery-section .gallery-heading-wrap,
+    .gallery-section .gallery-wrapper {
+      --section-reveal-x: 0px;
+      --section-reveal-y: 56px;
+      animation-range: entry 22% cover 60%;
+    }
+
+    .contact-section .contact-title,
+    .contact-section .contact-description,
+    .contact-section .list-of-contacts,
+    .contact-section .map-wrapper {
+      --section-reveal-x: 0px;
+      --section-reveal-y: 56px;
+      animation-range: entry 22% cover 60%;
+    }
+
+    .special-section .special-wrapper {
+      --section-reveal-x: 0px;
+      --section-reveal-y: 56px;
+      animation-range: entry 18% cover 55%;
+    }
+
+    .special-section .special-section-title,
+    .special-section .special-section-subtitle,
+    .special-section .special-wrapper .btn {
+      opacity: 0;
+      --section-reveal-x: 0px;
+      --section-reveal-y: 40px;
+      transform: translate3d(var(--section-reveal-x), var(--section-reveal-y), 0);
+      animation: sectionRevealScroll 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view(block);
+      will-change: transform, opacity;
+    }
+
+    .special-section .special-section-title {
+      animation-range: entry 30% cover 62%;
+      animation-delay: 0.1s;
+    }
+
+    .special-section .special-section-subtitle {
+      animation-range: entry 34% cover 66%;
+      animation-delay: 0.2s;
+    }
+
+    .special-section .special-wrapper .btn {
+      animation-range: entry 38% cover 70%;
+      animation-delay: 0.3s;
+    }
+
+    .faq-section .faq-section-heading {
+      --section-reveal-x: -72px;
+      --section-reveal-y: 0px;
+    }
+
+    .faq-section .faq-list-holder {
+      --section-reveal-x: 72px;
+      --section-reveal-y: 0px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .apts-section .apts-section-title,
+    .apts-section .apts-section-subtitle,
+    .apts-section .single-apt > :first-child,
+    .apts-section .single-apt > :last-child,
+    .characteristics-section .characteristics-heading,
+    .characteristics-section .main-characteristics,
+    .characteristics-section .additional-characteristics-layout,
+    .reviews-section .reviews-wrapper,
+    .faq-section .faq-section-heading,
+    .faq-section .faq-list-holder,
+    .gallery-section .gallery-heading-wrap,
+    .gallery-section .gallery-wrapper,
+    .contact-section .contact-title,
+    .contact-section .contact-description,
+    .contact-section .list-of-contacts,
+    .contact-section .map-wrapper,
+    .special-section .special-section-title,
+    .special-section .special-section-subtitle,
+    .special-section .special-wrapper .btn,
+    .special-section .special-wrapper {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }

@@ -134,7 +134,7 @@
           font-size: 18px;
           font-weight: 400;
           line-height: 1.4;
-          color: #13202E;
+          color: #101C2A;
 
           &::before {
             position: absolute;
@@ -146,7 +146,7 @@
             display: block;
             width: 8px;
             height: 8px;
-            background-color: #13202E;
+            background-color: #101C2A;
           }
 
           &::after {
@@ -161,7 +161,7 @@
             display: block;
             width: 8px;
             height: 8px;
-            background-color: #13202E;
+            background-color: #101C2A;
           }
         }
 
@@ -173,7 +173,7 @@
           font-weight: 600;
           font-size: 56px;
           line-height: 130%;
-          color: #13202E;
+          color: #101C2A;
         }
         .btn {
           margin: 40px auto 0 0;
@@ -241,7 +241,7 @@
               font-weight: 700;
               font-size: 24px;
               line-height: 32px;
-              color: #13202E;
+              color: #101C2A;
             }
 
             .faq-item-title-icon {
@@ -251,7 +251,7 @@
               display: grid;
               place-items: center;
               background: #FFFFFF;
-              color: #13202E;
+              color: #101C2A;
               border-radius: 50%;
               transition:
                 background-color .35s ease,
@@ -292,7 +292,7 @@
               font-family: 'Plus Jakarta Sans';
               font-size: 20px;
               line-height: 140%;
-              color: #13202E;
+              color: #101C2A;
             }
 
             &.is-open .faq-item-content {
@@ -348,14 +348,21 @@
 
   @media (max-width: 768px) {
     .faq-section {
-      padding: 56px 0;
+      padding: 48px 0 60px;
 
       .faq-container {
         gap: 32px;
 
         .faq-section-heading {
+          .faq-kicker {
+            margin: 0px auto 0;
+          }
           .faq-title {
-            font-size: 34px;
+            font-size: 36px;
+            text-align: center;
+          }
+          .btn {
+            margin: 32px auto 0;
           }
         }
 

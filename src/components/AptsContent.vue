@@ -287,6 +287,31 @@
   @media (max-width: 550px) {
     .apts-content {
       padding: 32px 20px;
+      .apt-content-header{
+        .apt-title-holder {
+          .apt-title, .apt-price {
+            font-size: 20px;
+          }
+        }
+      }
+      .apt-unit-info {
+        justify-content: space-between;
+        .apt-unit-info-item {
+          border: none;
+          flex: 1 0 22%;
+          padding: 0;
+          gap: 0px;
+          .apt-unit-title {
+            display: none;
+          }
+          .apt-unit-value{
+            margin-left: 12px;
+          }
+          &:last-of-type {
+            flex: 1 0 25%;
+          }
+        }
+      }
     }
     .apt-cta {
       justify-content: space-between;

@@ -101,7 +101,7 @@
 
         <div class="availability-modal-actions">
           <button type="button" class="availability-modal-action availability-modal-action--close" @click="closeModal">Zatvori</button>
-          <button type="button" class="availability-modal-action availability-modal-action--call">Pozovi nas</button>
+          <a type="button" class="availability-modal-action availability-modal-action--call">Pozovi nas</a>
         </div>
       </div>
     </div>
@@ -282,15 +282,18 @@
   }
 
   .availability-modal-action--close {
-    background: #13202E;
-    border: 2px solid #13202E;
+    background: #101C2A;
+    border: 2px solid #101C2A;
     &:hover {
-      color: #13202E;
+      color: #101C2A;
       background: #FFFFFF;
     }
   }
 
   .availability-modal-action--call {
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 0;
     background: #2FB6EF;
     border: 2px solid #2FB6EF;
     &:hover {
@@ -312,6 +315,9 @@
     .availability-modal-actions {
       flex-direction: column;
       padding-top: 20px;
+      .availability-modal-action {
+        min-height: 54px;
+      }
     }
   }
 </style>

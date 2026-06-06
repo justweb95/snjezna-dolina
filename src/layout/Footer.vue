@@ -75,7 +75,7 @@
 
 <style scoped>
   footer {
-    background-color: #13202E;
+    background-color: #101C2A;
     padding: 100px 0 0;
     .footer-container {
       display: flex;
@@ -189,7 +189,7 @@
     }
   }
   .footer-all-rights {
-    background-color: #13202E;
+    background-color: #101C2A;
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
@@ -224,11 +224,12 @@
 
   @media (max-width: 768px) {
      footer {
-      background-color: #13202E;
+      background-color: #101C2A;
       padding: 56px 0 16px;
       .footer-container {
         flex-wrap: wrap;
         gap: 56px; 
+        margin-bottom: 56px;
         .footer-info {
           flex: 1 1 100%;
           .footer-description {
@@ -241,6 +242,7 @@
         }
         .footer-nav-list {
           width: 110px;
+          flex: 1;
           .footer-nav-list-item {
             .footer-list-title {
               margin-bottom: 16px;

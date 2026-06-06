@@ -97,6 +97,19 @@
         animation: none;
       }
     }
+
+    @media (max-width: 768px) {
+      padding: 16px 0px 16px;
+      .special-container {
+        .special-wrapper {
+          padding: 60px 20px;
+          .special-section-subtitle {
+            font-size: 36px;
+            line-height: 120%;
+          }
+        }
+      }
+    }
   } 
 
   @keyframes titleDotPopGlobal {

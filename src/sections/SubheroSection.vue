@@ -9,8 +9,10 @@
   <section class="subhero-section">
     <div class="subhero-holder doli-container">
       <div class="subhero-content">
-        <h2 class="subhero-title">Zašto naši apartmani na Jahorini?</h2>
-        <h3 class="subhero-subtitle">Doživite vrhunac zimske magije u Snježnoj Dolini</h3>
+        <div class="subhero-sticky">
+          <h2 class="subhero-title">Zašto naši apartmani na Jahorini?</h2>
+          <h3 class="subhero-subtitle">Doživite vrhunac zimske magije u Snježnoj Dolini</h3>
+        </div>
       </div>
       <div class="subhero-legend">
         <div class="legend-item">
@@ -40,12 +42,15 @@
 
 <style scoped>
   .subhero-section {
+    overflow: clip;
     padding: 100px 0px;
-
-    background-size: cover;
+    background-size: 150%;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../assets/images/home/subhero-bg-image.webp');
+    animation: subhero-zoom linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 55%;
     .subhero-holder {
       display: flex;
       justify-content: space-between;
@@ -53,8 +58,12 @@
       gap: 24px;
       .subhero-content {
         flex: 1 0 45%;
+        position: relative;
+        .subhero-sticky {
+          position: sticky;
+          top: 40px;
+        }
         .subhero-title {
-          position: relative;
           font-style: normal;
           font-weight: 400;
           font-size: 20px;
@@ -63,9 +72,8 @@
           margin-left: 20px;
           &::before {
             position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
+            left: 0px;
+            top: 10px;
             content: '';
             border-radius: 50%;
             display: block;
@@ -76,8 +84,8 @@
 
           &::after {
             position: absolute;
-            left: -20px;
-            top: 50%;
+            left: 0px;
+            top: 15px;
             transform: translateY(-50%);
             transform-origin: center;
             animation: titleDotPop 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
@@ -119,7 +127,7 @@
             font-weight: 700;
             font-size: 48px;
             line-height: 60px;
-            color: #13202E;
+            color: #101C2A;
           }
           .legend-text {
             max-width: 240px;
@@ -134,6 +142,11 @@
         }
       }
     }
+  }
+
+  @keyframes subhero-zoom {
+    from { background-size: 250%; }
+    to { background-size: 150%; }
   }
 
   @keyframes titleDotPop {
@@ -173,6 +186,7 @@
   @media (max-width: 768px) {
     .subhero-section {
       padding: 56px 0 60px;
+      background-size: cover !important;
 
       .subhero-holder {
         gap: 48px;
@@ -204,8 +218,13 @@
           overflow: hidden;
 
           .legend-item {
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-content: space-between;
+            height: 145px;
             padding: 20px 24px;
-            gap: 16px;
+            gap: 6px;
             border-bottom: 1px solid #E4E9ED;
 
             &:last-child {

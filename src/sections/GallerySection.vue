@@ -82,7 +82,7 @@
     align-items: center;
     padding: 100px 0 24px;
     gap: 120px;
-    background: #13202E;
+    background: #101C2A;
 
     .gallery-container {
       display: flex;
@@ -268,7 +268,7 @@
   @media (max-width: 768px) {
     .gallery-section {
       gap: 56px;
-      padding: 64px 0 16px;
+      padding: 56px 0 16px;
 
       .gallery-container {
         gap: 48px;

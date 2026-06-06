@@ -143,7 +143,7 @@
         &:hover {
           transform: scale(1.05);
           cursor: pointer;
-          border: 1px solid #2FB6EF;
+          /* border: 1px solid #2FB6EF; */
         }
       }
     }
@@ -154,7 +154,7 @@
       padding: 20px;
       width: 100%;
       z-index: 9;
-      background-color: #13202E;
+      background-color: #101C2A;
       border-radius: 20px;
       .mobile-nav-list {
         list-style: none;
@@ -249,13 +249,50 @@
     }
 
     @media (max-width: 550px) {
+      .mobile-menu-holder {
+        padding: 16px;
+        .mobile-nav-list {
+          .mobile-nav-list-item {
+            flex: 0 0 50%;
+            border-right: none;
+            border-bottom: none;
+            &:nth-child(1),
+            &:nth-child(3) {
+              border-right: 1px solid #2F3752;
+              border-bottom: 1px solid #2F3752;
+            }
+            &:nth-child(2),
+            &:nth-child(4) {
+              border-bottom: 1px solid #2F3752;
+            }
+            &:nth-child(5) {
+              border-right: 1px solid #2F3752;
+            }
+            .mobile-nav-list-item-holder {
+              padding: 15px 16px;
+              .nav-name {
+                font-size: 16px;
+                span {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+        .mobile-img-holder {
+          .book-now-cta {
+            padding: 78px 16px;
+            font-size: 20px;
+          }
+        }
+      }
       .phone-icon {
         position: fixed;
         bottom: 20px;
         right: 20px;
         z-index: 10;
         img {
-          border: 3px solid #13202E !important;     
+          border: 3px solid #101C2A !important;     
           border-radius: 50%;
           background-color: #FFFFFF;
         }
