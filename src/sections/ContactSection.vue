@@ -197,19 +197,6 @@
     }
   }
 
-  @keyframes titleDotPop {
-    0% {
-      transform: translateY(-50%) scale(1);
-      opacity: 0.7;
-    }
-
-    70%,
-    100% {
-      transform: translateY(-50%) scale(2.6);
-      opacity: 0;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .contact-title::after {
       animation: none;
