@@ -207,7 +207,7 @@
     padding: 56px 0 16px;
     .contact-container {
       .contact-description {
-        font-size: 48px;
+        font-size: 36px;
         margin: 16px 0 56px;
       }
       .list-of-contacts {

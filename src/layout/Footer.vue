@@ -73,7 +73,7 @@
   </footer>
 </template>
 
-<style scoped>
+<style>
   footer {
     background-color: #101C2A;
     padding: 100px 0 0;
@@ -196,6 +196,7 @@
     }
   }
   .footer-all-rights {
+    border-top: 1px solid #2A3E53;
     background-color: #101C2A;
     padding: 20px 0;
     display: flex;
@@ -277,6 +278,27 @@
     .footer-all-rights {
       .all-rights-text {
         font-size: 16px;
+      }
+    }
+  }
+
+    @media (max-width: 550px) {
+     footer {
+      .footer-container {
+        margin-bottom: 30px;
+        .footer-info {
+          .footer-description {
+            max-width: 290px;
+            line-height: 130%;
+          }
+        }
+      }
+    }
+    .footer-all-rights {
+      .all-rights-text {
+        &:last-of-type{
+          display: none;
+        }
       }
     }
   }

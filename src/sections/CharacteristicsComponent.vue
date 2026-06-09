@@ -356,6 +356,28 @@
         line-height: 24px;
       }
     }
+    @media (max-width: 550px) {
+      .characteristics-heading {
+        margin-bottom: 8px;
+      }
+      .characteristics-content, .main-characteristics, .additional-characteristics-layout,
+      .additional-characteristics {
+        gap: 20px
+      }
+      .main-characteristics-item {
+        min-height: 88px;
+      }
+      .main-char-item-icon-holder {
+        max-height: 46px;
+        max-width: 46px;
+      }
+      .additional-characteristics-item {
+        min-height: 72px;
+      }
+      .featured-characteristic {
+        min-height: 240px;
+      }
+    }
   }
 
   @keyframes titleDotPopGlobal {

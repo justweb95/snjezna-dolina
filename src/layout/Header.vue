@@ -149,7 +149,7 @@
     }
     .mobile-menu-holder {
       position: absolute;
-      top: 100%;
+      top: calc(100% + 20px);
       left: 0;
       padding: 20px;
       width: 100%;
@@ -247,9 +247,13 @@
         }
       }
     }
-
+    
     @media (max-width: 550px) {
+      .logo {
+        max-width: 225px;
+      }
       .mobile-menu-holder {
+        top: calc(100% + 12px);
         padding: 16px;
         .mobile-nav-list {
           .mobile-nav-list-item {
@@ -280,6 +284,8 @@
           }
         }
         .mobile-img-holder {
+          background-image: url(../assets/images/home/hero-image.webp);
+          background-position: center;
           .book-now-cta {
             padding: 78px 16px;
             font-size: 20px;

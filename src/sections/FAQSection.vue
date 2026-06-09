@@ -60,7 +60,7 @@
         </div>
         <h2 class="faq-title">Sve što treba <br> da znate o našim apartmanima</h2>
       <ButtonAction 
-        type="button-phone"
+        type="button-phone-wide"
         text="Pozovi nas"
         action="href='tel:+38162204003'"
       />
@@ -394,4 +394,17 @@
       }
     }
   }
+
+    @media (max-width: 550px) {
+    .faq-section {
+      .faq-container {
+        .faq-list-holder .faq-list .faq-item {
+          .faq-item-content {
+            padding: 0 32px;
+          }
+        }
+      }
+    }
+  }
+
 </style>

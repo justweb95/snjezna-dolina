@@ -313,6 +313,11 @@
           }
         }
       }
+      .apt-unit-availability {
+        .apt-unit-availability-item {
+          padding: 12px 16px
+        }
+      }
     }
     .apt-cta {
       justify-content: space-between;

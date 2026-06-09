@@ -25,7 +25,7 @@
             class="badge-icon"/>
           Jahorina, BIH
         </span>
-        <h1 class="hero-title">Apartmani na Jahorini <br> Uz samu ski stazu</h1>
+        <h1 class="hero-title">Apartmani na Jahorini <br class="desktop-br"> Uz samu <br class="mobile-br"> ski stazu</h1>
         <p class="sub-content">Boravak već od 60 € po noćenju</p>
         <ButtonAction 
           type="primary"
@@ -33,7 +33,7 @@
           action="#apartmans"
         />
 
-        <p class="hero-text">Doživite pravu zimsku čaroliju! Naši moderni apartmani nalaze se <br> tik uz ski lift – izađite iz smeštaja i odmah ste na stazi.</p>
+        <p class="hero-text">Doživite pravu zimsku čaroliju! Naši moderni apartmani nalaze se <br class="desktop-br"> tik uz ski lift – izađite iz smeštaja i odmah ste na stazi.</p>
         <div class="hero-score">
           <img class="guest-favorite"
             :src="guestFavorite" 
@@ -73,6 +73,9 @@
 </template>
 
 <style scoped>
+  .mobile-br {
+    display: none;
+  }
   .hero-section {
     padding: 24px 0px;
 
@@ -258,6 +261,12 @@
   }
 
   @media (max-width: 768px) {
+    .desktop-br {
+      display: none;
+    }
+    .mobile-br {
+      display: inline;
+    }
     .hero-section {
       padding: 16px 0;
 
@@ -309,7 +318,7 @@
             max-width: 100%;
             font-size: 16px;
             line-height: 140%;
-            margin: 48px auto 32px;
+            margin: 48px auto 0px;
           }
 
           .hero-score {

@@ -24,7 +24,7 @@ import apt210 from '../assets/images/apartments/apartments_2_10.webp'
 
 export const apartments = [
   {
-    title: "Apartman L 7-1",
+    title: "Apartman L 4-4",
     rating: 4.8,
     reviews: 106,
     description: "Elegantno opremljen prostor idealan za manju porodicu. Uživajte u vrhunskom komforu i planinskom ambijentu uz sve pogodnosti \"Snježna Dolina\" resorta.",

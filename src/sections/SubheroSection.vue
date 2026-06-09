@@ -122,6 +122,9 @@
           display: flex;
           justify-content: space-between;
           border-bottom: 1px solid #E4E9ED;
+          &:last-of-type {
+            border-bottom: 1px solid transparent;
+          }
 
           .legend-title {
             width: 110px;
@@ -251,6 +254,23 @@
               height: 56px;
               max-width: 56px;
               max-height: 56px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+    @media (max-width: 550px) {
+    .subhero-section {
+      .subhero-holder {
+        .subhero-content {
+          .subhero-title {
+            &::before {
+              left: 20px;
+            }
+            &::after {
+              left: 20px;
             }
           }
         }

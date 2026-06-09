@@ -184,7 +184,7 @@
 
   .availability-calendar-placeholder {
     border-radius: 16px;
-    padding: 20px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     gap: 16px;

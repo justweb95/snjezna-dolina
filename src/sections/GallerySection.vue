@@ -274,7 +274,7 @@
         gap: 48px;
 
         .gallery-heading-wrap {
-          gap: 28px;
+          gap: 0px;
 
           .gallery-section-title {
             font-size: 18px;

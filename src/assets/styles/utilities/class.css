@@ -3,4 +3,7 @@
   width: 95%;
   max-width: 1560px;
   margin: 0 auto;
+  @media (max-width: 550px) {
+    width: 93%;
+  }
 }

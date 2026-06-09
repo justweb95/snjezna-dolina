@@ -5,7 +5,7 @@
     type: {
       type: String,
       default: 'primary',
-      validator: (value) => ['primary', 'secondary', 'button-phone'].includes(value),
+      validator: (value) => ['primary', 'secondary', 'button-phone', 'button-phone-wide'].includes(value),
     },
   });
 
@@ -21,14 +21,15 @@
     :href="btnProps.action"
     :class="[
       'btn',
-      btnProps.type === 'button-phone' ? 'primary' : btnProps.type,
+      btnProps.type === 'button-phone' || btnProps.type === 'button-phone-wide' ? 'primary' : btnProps.type,
       { 'button-phone': btnProps.type === 'button-phone' },
+      { 'button-phone-wide': btnProps.type === 'button-phone-wide' },
     ]"
   >
     <img
-     :src="btnProps.type === 'button-phone' ? buttonPhoneIcon : (btnProps.type === 'primary' ? buttonIcon : buttonIconWhite)" 
+     :src="btnProps.type === 'button-phone' || btnProps.type === 'button-phone-wide' ? buttonPhoneIcon : (btnProps.type === 'primary' ? buttonIcon : buttonIconWhite)" 
      class="button-icon"
-     :alt="btnProps.type === 'button-phone' ? 'Phone button icon' : 'Button icon'" />
+     :alt="btnProps.type === 'button-phone' || btnProps.type === 'button-phone-wide' ? 'Phone button icon' : 'Button icon'" />
     <span class="btn-text">{{ btnProps.text }}</span>
   </a>
 </template>
@@ -104,6 +105,11 @@
       padding: 0;
     }
   }
+  &.button-phone-wide {
+    .button-icon {
+      padding: 0;
+    }
+  }
   
   &.secondary {
     margin: 40px auto 0;
@@ -130,11 +136,10 @@
       transform: translateX(-40px);
     }
   }
-
 }
 
 @media (max-width: 550px) {
-  .btn.button-phone {
+  .btn.button-phone:not(.button-phone-wide) {
     width: 56px;
     height: 56px;
     padding: 0;

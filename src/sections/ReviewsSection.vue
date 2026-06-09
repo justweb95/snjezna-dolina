@@ -105,7 +105,7 @@
     const maxWidthByViewport = (viewportWidth - (MIN_GAP * visibleGapCount)) / visibleSpan;
 
     slideWidth.value = Math.min(MAX_CARD_WIDTH, maxWidthByViewport);
-    slideGap.value = (viewportWidth - (slideWidth.value * visibleSpan)) / visibleGapCount;
+    slideGap.value = MIN_GAP;
   };
 
   const normalizeCarouselPosition = () => {
@@ -565,8 +565,10 @@
         width: 95%;
         gap: 12px;
         .reviews-action{
+          flex: 1 0 45%;
           font-size: 16px;
-          padding: 12px 24px;
+          padding: 12px 4px;
+          min-width: auto;
         }
       }
     }
