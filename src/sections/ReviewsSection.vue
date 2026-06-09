@@ -31,37 +31,37 @@
       text: 'Top smeštaj! Apartman je funkcionalan, internet stabilan (ako nekom treba za posao), a resort je blizu svih dešavanja.',
       name: 'Ivan T.',
       date: 'Novembar 2025.',
-      initials: 'IT'
+      avatar: new URL('../assets/images/reviews/ivana_t.png', import.meta.url).href
     },
     {
       text: 'Sve je tip-top. Od prijema do check-outa, osoblje je bilo super ljubazno. Parking je obezbeđen što je na Jahorini inače ogroman problem, tako da smo bili mirni. Odličan odnos cene i onoga što dobijete...',
       name: 'Damir H.',
       date: 'Novembar 2025.',
-      initials: 'DH'
+      avatar: new URL('../assets/images/reviews/damir_h.png', import.meta.url).href
     },
     {
       text: 'Prelepo uređen prostor, vidi se da se pazilo na detalje. Sve je čista desetka. Mirno je i idealno za pravi odmor.',
       name: 'Elena G.',
       date: 'Decembar 2025.',
-      initials: 'EG'
+      avatar: new URL('../assets/images/reviews/elena_g.png', import.meta.url).href
     },
     {
       text: 'Prezadovoljni smo boravkom. Posebno nam se dopalo što je u apartmanu jako toplo, čak i kad je napolju bio ozbiljan minus. Kuhinja je opremljena svim sitnicama koje vam mogu zatrebati, što nam je kao porodici sa malim detetom bilo veoma važno.',
       name: 'Milica B.',
       date: 'Januar 2026.',
-      initials: 'MB'
+      avatar: new URL('../assets/images/reviews/milica_b.png', import.meta.url).href
     },
     {
       text: 'Bukvalno najbolja lokacija na planini. Izađeš iz zgrade i na stazi si. Apartmani su novi, čisti i baš onakvi kakvi su na slikama. Sve preporuke!',
       name: 'Nikola S.',
       date: 'Januar 2026.',
-      initials: 'NS'
+      avatar: new URL('../assets/images/reviews/nikola_s.png', import.meta.url).href
     },
     {
       text: 'Mesto sa dušom. Enterijer je moderan ali ušuškan, kreveti su preudobni. Pogled na planinu uz jutarnju kafu je neprocenjiv. Sigurno se vraćamo i sledeće godine!',
       name: 'Sanja M.',
       date: 'Januar 2026.',
-      initials: 'SM'
+      avatar: new URL('../assets/images/reviews/sanja_m.png', import.meta.url).href
     }
   ];
 
@@ -226,7 +226,7 @@
                 <p class="review-text">{{ review.text }}</p>
 
                 <div class="review-author">
-                  <div class="review-avatar">{{ review.initials }}</div>
+                  <img class="review-avatar" :src="review.avatar" :alt="`Profilna slika - ${review.name}`" loading="lazy" />
                   <div class="review-author-meta">
                     <p class="review-author-name">{{ review.name }}</p>
                     <p class="review-author-date">{{ review.date }}</p>
@@ -263,7 +263,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
+      gap: 24px;
       width: 100%;
     }
 
@@ -325,6 +325,7 @@
       gap: 40px;
       flex-wrap: wrap;
       width: 100%;
+      margin-top: 16px;
     }
 
     .reviews-metrics-divider {
@@ -435,19 +436,12 @@
     }
 
     .review-avatar {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
       width: 56px;
       height: 56px;
       flex-shrink: 0;
       border-radius: 999px;
-      background: linear-gradient(135deg, #DCE7EC 0%, #A5B4B4 100%);
-      font-style: normal;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 24px;
-      color: #101C2A;
+      object-fit: cover;
     }
 
     .review-author-meta {

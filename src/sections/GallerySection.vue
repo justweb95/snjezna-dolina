@@ -96,7 +96,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 0px;
         width: 100%;
 
         .gallery-kicker-wrap {
@@ -147,7 +147,7 @@
         }
 
         .gallery-section-subtitle {
-          margin: 0;
+          margin: 16px 0 24px 0;
           max-width: 100%;
           font-family: 'Plus Jakarta Sans';
           font-style: normal;

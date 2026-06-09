@@ -73,6 +73,7 @@
         }
       }
       .apts-section-subtitle {
+        margin: 16px 0; 
         font-style: normal;
         font-weight: 600;
         font-size: 48px;

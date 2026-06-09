@@ -9,7 +9,7 @@
         <h2 class="special-section-title">Specijalna ponuda</h2>
         <p class="special-section-subtitle">Rezervišite 30+ dana unapred i uštedite 15%</p>
         <ButtonAction 
-          type="primary"
+          type="secondary"
           text="Rezerviši odmah"
           action="#apts"
         />
@@ -21,6 +21,7 @@
 
 <style scoped>
   .special-section {
+    background-color: #FAFAFA;
     padding: 24px 0px;
     .special-container {
       .special-wrapper {

@@ -49,14 +49,14 @@ export const apartments = [
   },
 
   {
-    title: "Apartman 2",
-    rating: 4.6,
-    reviews: 85,
-    description: "Prostran apartman sa modernim sadržajima i blizinom ski staze.",
-    capacity: 6,
-    rooms: 3,
-    bathrooms: 2,
-    area: 120,
+    title: "Apartman L 7-1",
+    rating: 4.8,
+    reviews: 106,
+    description: "Elegantno opremljen prostor idealan za manju porodicu. Uživajte u vrhunskom komforu i planinskom ambijentu uz sve pogodnosti \"Snježna Dolina\" resorta.",
+    capacity: 4,
+    rooms: 1,
+    bathrooms: 1,
+    area: 31,
     price: "60-120",
 
     gallery: [

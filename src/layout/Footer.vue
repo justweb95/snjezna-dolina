@@ -131,6 +131,9 @@
         }
         .btn {
           margin: 0px auto 0 0;
+          .button-icon {
+            transform: translateY(-50%) rotate(-45deg);
+          }
         }
       }
       .footer-nav-list {
@@ -180,6 +183,10 @@
             font-size: 20px;
             line-height: 140%;
             color: #FFFFFF;
+            svg {
+              vertical-align: middle;
+              margin-right: 12px;
+            }
           }
         }
         .footer-social-list-item-up {

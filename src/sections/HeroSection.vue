@@ -33,7 +33,7 @@
           action="#apartmans"
         />
 
-        <p class="hero-text">Doživite pravu zimsku čaroliju! Naši moderni apartmani nalaze se tik uz ski lift – izađite iz smeštaja i odmah ste na stazi.</p>
+        <p class="hero-text">Doživite pravu zimsku čaroliju! Naši moderni apartmani nalaze se <br> tik uz ski lift – izađite iz smeštaja i odmah ste na stazi.</p>
         <div class="hero-score">
           <img class="guest-favorite"
             :src="guestFavorite" 
@@ -131,6 +131,12 @@
         }
 
         .sub-content {
+          padding: 8px 24px;
+          background: #FAFAFA;
+          border-radius: 6px;
+          display: block;
+          width: fit-content;
+          margin: 0 auto;
           font-weight: 700;
           font-size: 18px;
           line-height: 23px;
@@ -138,10 +144,11 @@
         }
 
         .hero-text {
+          font-size: 20px;
           display: block;
           max-width: 595px;
           text-align: center;
-          margin: 48px auto auto;
+          margin: auto auto 32px;
         }
 
         .hero-score {
@@ -157,7 +164,15 @@
             margin-right: auto;
           }
 
+          hr {
+            width: 1px;
+            height: 40px;
+            background: #E4E9ED;
+            border: none;
+          }
+          
           .guest-return {
+            text-align: center;
             h3 {
               font-size: 18px;
               line-height: 32px;
@@ -230,6 +245,13 @@
         .hero-image-holder {
           flex: 1 1 auto;
           max-width: 100%;
+
+          .hero-text {
+            max-width: 100%;
+            font-size: 16px;
+            line-height: 140%;
+            margin: 48px auto 32px;
+          }
         }
       }
     }

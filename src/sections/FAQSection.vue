@@ -58,12 +58,12 @@
         <div class="faq-kicker">
           <span>FAQ</span>
         </div>
-        <h2 class="faq-title">Sve što treba da znate o našim apartmanima</h2>
-        <ButtonAction
-          type="primary"
-          text="Rezerviši odmah"
-          action="#apts"
-        />
+        <h2 class="faq-title">Sve što treba <br> da znate o našim apartmanima</h2>
+      <ButtonAction 
+        type="button-phone"
+        text="Pozovi nas"
+        action="href='tel:+38162204003'"
+      />
       </div>
 
       <div class="faq-list-holder">

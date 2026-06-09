@@ -98,6 +98,7 @@
           }
         }
         .subhero-subtitle {
+          margin-top: 16px;
           max-width: 690px;
           font-style: normal;
           font-weight: 600;
@@ -120,6 +121,7 @@
           width: 100%;
           display: flex;
           justify-content: space-between;
+          border-bottom: 1px solid #E4E9ED;
 
           .legend-title {
             width: 110px;
@@ -205,6 +207,7 @@
           }
 
           .subhero-subtitle {
+            margin-top: 16px !important;
             margin: 0;
             max-width: 358px;
             font-size: 36px;
