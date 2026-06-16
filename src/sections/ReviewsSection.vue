@@ -237,10 +237,10 @@
           </div>
         </div>
 
-        <div class="reviews-actions">
-          <a href="https://www.google.com/search?sca_esv=b0606a0ae3ff7c6b&cs=1&output=search&kgmid=/g/11n68ywsvf&q=Snje%C5%BEna+dolina+Jahorina&shem=dlvsc,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=473ff600cd48dcef&utm_source=dlvsc,rimspwouoe,sh/x/loc/uni/m1/1#lrd=0x4758bf604e300939:0xfa0ab1ba13cdca76,1,,,," class="reviews-action reviews-action--primary">Napiši recenziju</a>
-          <a href="https://www.google.com/search?sca_esv=b0606a0ae3ff7c6b&cs=1&output=search&kgmid=/g/11n68ywsvf&q=Snje%C5%BEna+dolina+Jahorina&shem=dlvsc,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=473ff600cd48dcef&utm_source=dlvsc,rimspwouoe,sh/x/loc/uni/m1/1" class="reviews-action reviews-action--secondary">Pogledaj više</a>
-        </div>
+        <!-- <div class="reviews-actions">
+          <a disable href="https://www.google.com/search?sca_esv=b0606a0ae3ff7c6b&cs=1&output=search&kgmid=/g/11n68ywsvf&q=Snje%C5%BEna+dolina+Jahorina&shem=dlvsc,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=473ff600cd48dcef&utm_source=dlvsc,rimspwouoe,sh/x/loc/uni/m1/1#lrd=0x4758bf604e300939:0xfa0ab1ba13cdca76,1,,,," class="reviews-action reviews-action--primary">Napiši recenziju</a>
+          <a disable href="https://www.google.com/search?sca_esv=b0606a0ae3ff7c6b&cs=1&output=search&kgmid=/g/11n68ywsvf&q=Snje%C5%BEna+dolina+Jahorina&shem=dlvsc,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=473ff600cd48dcef&utm_source=dlvsc,rimspwouoe,sh/x/loc/uni/m1/1" class="reviews-action reviews-action--secondary">Pogledaj više</a>
+        </div> -->
       </div>
     </div>
   </section>
