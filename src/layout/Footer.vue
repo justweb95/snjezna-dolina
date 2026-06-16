@@ -236,7 +236,7 @@
       padding: 56px 0 16px;
       .footer-container {
         flex-wrap: wrap;
-        gap: 56px; 
+        gap: 45px; 
         margin-bottom: 56px;
         .footer-info {
           flex: 1 1 100%;
@@ -250,7 +250,6 @@
         }
         .footer-nav-list {
           width: 110px;
-          flex: 1;
           .footer-nav-list-item {
             .footer-list-title {
               margin-bottom: 16px;
@@ -263,6 +262,7 @@
           }
         }
         .footer-social-list {
+          width: 185px;
           .footer-social-list-item {
             .footer-list-title {
               font-size: 16px;
