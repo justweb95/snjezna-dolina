@@ -1,7 +1,7 @@
 <script setup>
   import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
-  const MIN_GAP = 24;
+const MIN_GAP = window.innerWidth < 550 ? 12 : 24;
   const MAX_CARD_WIDTH = 400;
   const EDGE_PREVIEW_RATIO = 0.2;
   const CAROUSEL_INTERVAL = 3500;
@@ -537,7 +537,11 @@
       .reviews-score-value {
         font-size: 40px;
       }
-
+    
+      .review-text {
+        font-size: 16px;
+      }
+      
       .reviews-summary-text {
         font-size: 18px;
       }

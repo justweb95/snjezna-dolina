@@ -4,6 +4,6 @@
   max-width: 1560px;
   margin: 0 auto;
   @media (max-width: 550px) {
-    width: 93%;
+    width: calc(100% - 32px);
   }
 }

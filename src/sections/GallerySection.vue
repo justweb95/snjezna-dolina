@@ -42,7 +42,7 @@
           <h2 class="gallery-section-title">Galerija</h2>
         </div>
 
-        <p class="gallery-section-subtitle">Uživajte u zimskom raju</p>
+        <p class="gallery-section-subtitle">Uživajte u <br class="mobile-only"> zimskom raju</p>
 
         <p class="gallery-desct">
           Jahorina je poznata po vrhunskim ski stazama, čistom planinskom vazduhu i nezaboravnim panoramama.
@@ -75,6 +75,9 @@
 </template>
 
 <style scoped>
+.mobile-only {
+  display: none;
+}
   .gallery-section {
     overflow: hidden;
     display: flex;
@@ -174,7 +177,7 @@
       .gallery-wrapper {
         width: 100%;
         overflow: hidden;
-        mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+        /* mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%); */
 
         .gallery-track {
           display: flex;
@@ -315,6 +318,24 @@
 
           .gallery-track {
             animation-duration: 52s;
+          }
+        }
+      }
+    }
+  }
+
+    @media (max-width: 550px) {
+    .gallery-section {
+      .gallery-container {
+        .gallery-heading-wrap {
+          padding: 0 16px;
+          .mobile-only {
+            display: inline;
+          }
+
+          .gallery-section-subtitle {
+            font-size: 36px;
+            line-height: 1.25;
           }
         }
       }

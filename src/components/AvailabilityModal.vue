@@ -1,19 +1,219 @@
 <script setup>
-  import CalendarIconBlue from '../assets/images/icons/calendar_check_blue.svg';
+import { ref, computed, onMounted } from 'vue';
+import CalendarIconBlue from '../assets/images/icons/calendar_check_blue.svg';
 
-  const props = defineProps({
-    isOpen: {
-      type: Boolean,
-      default: false
+const props = defineProps({
+  isOpen: {
+    type: Boolean,
+    default: false
+  },
+  apartmentId: {
+    type: Number,
+    required: true
+  }
+});
+
+const emit = defineEmits(['close']);
+
+/* =========================
+   ENV CONFIG
+========================= */
+const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+
+/* =========================
+   STATE
+========================= */
+const bookedRanges = ref([]);
+const bookedDates = ref(new Set());
+const loading = ref(false);
+const currentDate = ref(new Date());
+
+/* =========================
+   DATE HELPERS (IMPORTANT FIX)
+========================= */
+const toDateString = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+};
+
+/* =========================
+   MONTH LABEL
+========================= */
+const MONTHS = [
+  'Januar', 'Februar', 'Mart', 'April', 'Maj', 'Jun',
+  'Jul', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'
+];
+
+const monthLabel = computed(() => {
+  const d = currentDate.value;
+  return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+});
+
+/* =========================
+   NAVIGATION
+========================= */
+const prevMonth = () => {
+  console.log("⬅️ Prev month");
+
+  const d = new Date(currentDate.value);
+  d.setMonth(d.getMonth() - 1);
+  currentDate.value = d;
+
+  console.log("📅 New month:", d);
+};
+
+const nextMonth = () => {
+  console.log("➡️ Next month");
+
+  const d = new Date(currentDate.value);
+  d.setMonth(d.getMonth() + 1);
+  currentDate.value = d;
+
+  console.log("📅 New month:", d);
+};
+
+/* =========================
+   FETCH GOOGLE CALENDAR
+========================= */
+const fetchCalendarEvents = async () => {
+  try {
+    loading.value = true;
+
+    const timeMin = new Date();
+    timeMin.setFullYear(timeMin.getFullYear() - 1);
+
+    const timeMax = new Date();
+    timeMax.setFullYear(timeMax.getFullYear() + 2);
+
+    const params = new URLSearchParams({
+      key: API_KEY,
+      timeMin: timeMin.toISOString(),
+      timeMax: timeMax.toISOString(),
+      singleEvents: 'true',
+      orderBy: 'startTime'
+    });
+
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId.value)}/events?${params}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    console.log("📥 API response:", data);
+    console.log("📋 Items:", data.items);
+
+bookedRanges.value = (data.items || [])
+  .filter(ev => ev.start?.date && ev.summary === 'Rezervisano')
+  .map(ev => ({
+    start: ev.start.date,
+    end: ev.end.date,
+    title: ev.summary
+  }));
+
+    buildBookedDates();
+
+  } catch (err) {
+    console.error("❌ API error:", err);
+  } finally {
+    loading.value = false;
+  }
+};
+
+const CALENDAR_IDS = {
+  1: import.meta.env.VITE_CALENDAR_ID_1,
+  2: import.meta.env.VITE_CALENDAR_ID_2,
+};
+
+
+const calendarId = computed(() => CALENDAR_IDS[props.apartmentId]);
+
+
+/* =========================
+   BUILD BOOKED DAYS
+========================= */
+const buildBookedDates = () => {
+  const set = new Set();
+
+  console.log("🔧 Building booked dates...");
+
+  bookedRanges.value.forEach(r => {
+    let start = new Date(r.start);
+    let end = new Date(r.end);
+
+    console.log("➡️ Range:", r.start, "→", r.end);
+
+    while (start < end) {
+      const dateStr = toDateString(start);
+      set.add(dateStr);
+      start.setDate(start.getDate() + 1);
     }
   });
 
-  const emit = defineEmits(['close']);
+  bookedDates.value = set;
 
-  const closeModal = () => {
-    emit('close');
-  };
+  console.log("📆 Final booked dates Set:", bookedDates.value);
+};
+
+/* =========================
+   PAST DATE CHECK (FIXED)
+========================= */
+const isPastDate = (dateStr) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const [y, m, d] = dateStr.split('-');
+  const date = new Date(y, m - 1, d);
+
+  return date < today;
+};
+
+/* =========================
+   CALENDAR GRID
+========================= */
+const calendarDays = computed(() => {
+  const year = currentDate.value.getFullYear();
+  const month = currentDate.value.getMonth();
+
+  const lastDay = new Date(year, month + 1, 0);
+
+  const days = [];
+
+  console.log("📅 Building calendar for:", year, month + 1);
+
+  for (let i = 1; i <= lastDay.getDate(); i++) {
+    const date = new Date(year, month, i);
+
+    const dateStr = toDateString(date);
+
+    const isBooked = bookedDates.value.has(dateStr);
+
+    days.push({
+      day: i,
+      date: dateStr,
+      isBooked
+    });
+  }
+
+  return days;
+});
+
+/* =========================
+   LIFECYCLE
+========================= */
+onMounted(() => {
+  fetchCalendarEvents();
+});
+
+/* =========================
+   CLOSE MODAL
+========================= */
+const closeModal = () => {
+  emit('close');
+};
 </script>
+
 
 <template>
   <Teleport to="body">
@@ -43,58 +243,33 @@
         <div class="availability-modal-content">
           <div class="availability-calendar-placeholder" aria-label="Kalendar uskoro">
             <div class="availability-calendar-top">
-              <button type="button" class="availability-calendar-nav" aria-label="Prethodni mesec">
+              <button type="button" class="availability-calendar-nav" @click="prevMonth">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16 20L8 12L16 4" stroke="#0D1F4C" stroke-width="2"/>
                 </svg>
               </button>
-              <p class="availability-calendar-month">Septembar 2026</p>
-              <button type="button" class="availability-calendar-nav" aria-label="Sledeci mesec">
+              <p class="availability-calendar-month">{{ monthLabel }}</p>
+              <button type="button" class="availability-calendar-nav" @click="nextMonth">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 20L16 12L8 4" stroke="#0D1F4C" stroke-width="2"/>
                 </svg>
               </button>
             </div>
-            <div class="availability-calendar-grid availability-calendar-grid--days">
-              <span>PON</span>
-              <span>UTO</span>
-              <span>SRE</span>
-              <span>CET</span>
-              <span>PET</span>
-              <span>SUB</span>
-              <span>NED</span>
+            <div v-if="loading" class="calendar-skeleton">
+              <span v-for="n in 30" :key="n" class="skeleton-box"></span>
             </div>
-            <div class="availability-calendar-grid availability-calendar-grid--dates">
-              <span class="is-muted">1</span>
-              <span class="is-muted">2</span>
-              <span class="is-booked">3</span>
-              <span class="is-booked">4</span>
-              <span class="is-booked">5</span>
-              <span class="is-available">6</span>
-              <span class="is-available">7</span>
-              <span class="is-available">8</span>
-              <span class="is-available">9</span>
-              <span class="is-available">10</span>
-              <span class="is-available">11</span>
-              <span class="is-available">12</span>
-              <span class="is-available">13</span>
-              <span class="is-available">14</span>
-              <span class="is-available">15</span>
-              <span class="is-available">16</span>
-              <span class="is-available">17</span>
-              <span class="is-available">18</span>
-              <span class="is-available">19</span>
-              <span class="is-available">20</span>
-              <span class="is-available">21</span>
-              <span class="is-available">22</span>
-              <span class="is-available">23</span>
-              <span class="is-available">24</span>
-              <span class="is-available">25</span>
-              <span class="is-available">26</span>
-              <span class="is-available">27</span>
-              <span class="is-available">28</span>
-              <span class="is-available">29</span>
-              <span class="is-available">30</span>
+            <div v-else class="availability-calendar-grid availability-calendar-grid--dates">
+              <span
+                v-for="day in calendarDays"
+                :key="day.date"
+                :class="{
+                  'is-muted': isPastDate(day.date),
+                  'is-booked': !isPastDate(day.date) && day.isBooked,
+                  'is-available': !isPastDate(day.date) && !day.isBooked
+                }"
+              >
+                {{ day.day }}
+              </span>
             </div>
           </div>
         </div>
@@ -109,6 +284,27 @@
 </template>
 
 <style scoped>
+
+.calendar-skeleton {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.skeleton-box {
+  height: 32px;
+  background: #eee;
+  border-radius: 6px;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+
   .availability-modal-overlay {
     position: fixed;
     inset: 0;
@@ -320,4 +516,28 @@
       }
     }
   }
+  @media (max-width: 550px) {
+    .availability-calendar-placeholder {
+      padding: 0;
+    }
+    .availability-modal {
+      padding: 20px;
+    }
+    .availability-calendar-grid{
+      gap: 4px;
+    }
+    .availability-calendar-grid--dates span {
+      height: 41px;
+      width: 41px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .availability-calendar-grid--dates span {
+      height: 38px;
+      width: 38px;
+    }
+  }
+
 </style>

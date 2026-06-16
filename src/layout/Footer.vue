@@ -295,6 +295,7 @@
       }
     }
     .footer-all-rights {
+      padding: 16px 0 0;
       .all-rights-text {
         &:last-of-type{
           display: none;

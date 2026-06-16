@@ -45,7 +45,8 @@
           <div class="pricing-table" role="table" aria-label="Detaljni cenovnik">
             <div class="pricing-row pricing-row--head" role="row">
               <p role="columnheader">Trajanje</p>
-              <p role="columnheader">Cena po nocenju</p>
+              <p class="desktop-only" role="columnheader">Cena po nocenju</p>
+              <p class="mobile-only" role="columnheader">Cena/Noc</p>
               <p role="columnheader">Ukupno</p>
             </div>
             <div class="pricing-row" role="row">
@@ -91,6 +92,12 @@
 </template>
 
 <style scoped>
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
   .pricing-modal-overlay {
     position: fixed;
     inset: 0;
@@ -292,7 +299,7 @@
     
   @media (max-width: 768px) {
     .pricing-modal {
-      padding: 12px;
+      padding: 20px;
       gap: 24px;
     }
 
@@ -317,6 +324,13 @@
     .pricing-row p:nth-child(2),
     .pricing-row p:nth-child(3) {
       text-align: left;
+    }
+
+    .desktop-only {
+      display: none;
+    }
+    .mobile-only {
+      display: block;
     }
   }
 </style>

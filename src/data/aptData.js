@@ -24,6 +24,7 @@ import apt210 from '../assets/images/apartments/apartments_2_10.webp'
 
 export const apartments = [
   {
+    id: 1,
     title: "Apartman L 4-4",
     rating: 4.8,
     reviews: 106,
@@ -49,6 +50,7 @@ export const apartments = [
   },
 
   {
+    id: 2,
     title: "Apartman L 7-1",
     rating: 4.8,
     reviews: 106,

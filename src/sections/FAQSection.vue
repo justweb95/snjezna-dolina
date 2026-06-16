@@ -368,7 +368,9 @@
 
         .faq-list-holder .faq-list .faq-item {
           .faq-item-title {
+            padding: 8px;
             min-height: 88px;
+            gap: 12px;
           }
 
           .faq-item-title-img,
@@ -378,7 +380,8 @@
           }
 
           .faq-item-title-text {
-            font-size: 18px;
+            margin-left: 8px;
+            font-size: 16px;
             line-height: 1.25;
           }
 
@@ -397,10 +400,22 @@
 
     @media (max-width: 550px) {
     .faq-section {
+      .faq-item-title {
+        min-height: 72px !important;
+      }
+      .faq-list, .faq-item-title, .is-open, .faq-item {
+        border-radius: 36px !important;
+      }
+      .faq-item-title-img, .faq-item-title-icon {
+        max-width: 56px;
+        max-height: 56px;
+      }
       .faq-container {
         .faq-list-holder .faq-list .faq-item {
           .faq-item-content {
-            padding: 0 32px;
+            p {
+              padding: 32px 0;
+            }
           }
         }
       }

@@ -113,7 +113,7 @@
     </div>
   </article>
 
-  <AvailabilityModal :isOpen="isAvailabilityModalOpen" @close="closeAvailabilityModal" />
+  <AvailabilityModal :isOpen="isAvailabilityModalOpen" :apartment-id="aptData.id" @close="closeAvailabilityModal" />
   <PricingModal :isOpen="isPricingModalOpen" @close="closePricingModal" />
 </template>
 
