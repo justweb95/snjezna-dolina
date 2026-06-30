@@ -30,7 +30,7 @@
         <ButtonAction 
           type="primary"
           text="Pogledajte apatmane"
-          action="#apartmans"
+          action="#apts"
         />
 
         <p class="hero-text">Doživite pravu zimsku čaroliju! Naši moderni apartmani nalaze se <br class="desktop-br"> tik uz ski lift – izađite iz smeštaja i odmah ste na stazi.</p>

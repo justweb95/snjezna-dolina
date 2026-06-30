@@ -1,46 +1,74 @@
 <script setup>
-  import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-  // Image imports
-  import UsersFour from '../assets/images/icons/users_four_small.svg';
-  import BedDouble from '../assets/images/icons/bed-double.svg';
-  import Bathtub from '../assets/images/icons/bathtub.svg';
-  import ArrowsOut from '../assets/images/icons/arrows_out.svg';
-  import PlusIcon from '../assets/images/icons/plus-icon.svg';
-  import MoneyWavy from '../assets/images/icons/money_wavy_small.svg';
-  import CalendarIcon from '../assets/images/icons/calendar_check.svg';
+// Image imports
+import UsersFour from '../assets/images/icons/users_four_small.svg'
+import BedDouble from '../assets/images/icons/bed-double.svg'
+import Bathtub from '../assets/images/icons/bathtub.svg'
+import ArrowsOut from '../assets/images/icons/arrows_out.svg'
+import PlusIcon from '../assets/images/icons/plus-icon.svg'
+import MoneyWavy from '../assets/images/icons/money_wavy_small.svg'
+import CalendarIcon from '../assets/images/icons/calendar_check.svg'
 
-  // Component imports
-  import ButtonAction from '../components/ButtonAction.vue';
-  import AvailabilityModal from '../components/AvailabilityModal.vue';
-  import PricingModal from '../components/PricingModal.vue';
+// Component imports
+import ButtonAction from '../components/ButtonAction.vue'
+import AvailabilityModal from '../components/AvailabilityModal.vue'
+import PricingModal from '../components/PricingModal.vue'
 
-  // Props 
-  const props = defineProps({
-    aptData: {
-      type: Object,
-      required: true
+// Props
+const props = defineProps({
+  aptData: {
+    type: Object,
+    required: true
+  }
+})
+
+const isAvailabilityModalOpen = ref(false)
+const isPricingModalOpen = ref(false)
+
+let revealObserver = null
+
+const openAvailabilityModal = () => {
+  isAvailabilityModalOpen.value = true
+}
+
+const closeAvailabilityModal = () => {
+  isAvailabilityModalOpen.value = false
+}
+
+const openPricingModal = () => {
+  isPricingModalOpen.value = true
+}
+
+const closePricingModal = () => {
+  isPricingModalOpen.value = false
+}
+
+onMounted(() => {
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          revealObserver.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.25
     }
-  });
+  )
 
-  const isAvailabilityModalOpen = ref(false);
-  const isPricingModalOpen = ref(false);
+  document
+    .querySelectorAll(
+      '.apts-section .single-apt > :first-child, .apts-section .single-apt > :last-child'
+    )
+    .forEach((el) => revealObserver.observe(el))
+})
 
-  const openAvailabilityModal = () => {
-    isAvailabilityModalOpen.value = true;
-  };
-
-  const closeAvailabilityModal = () => {
-    isAvailabilityModalOpen.value = false;
-  };
-
-  const openPricingModal = () => {
-    isPricingModalOpen.value = true;
-  };
-
-  const closePricingModal = () => {
-    isPricingModalOpen.value = false;
-  };
+onBeforeUnmount(() => {
+  revealObserver?.disconnect()
+})
 </script>
 
 <template>

@@ -44,12 +44,12 @@
   @keyframes sectionRevealStretchUp {
     from {
       opacity: 0;
-      transform: translate3d(0, 56px, 0) scaleX(0.94);
+      transform: translate3d(0, 56px, 0) scale(0.9, 0.92);
     }
 
     to {
       opacity: 1;
-      transform: translate3d(0, 0, 0) scaleX(1);
+      transform: translate3d(0, 0, 0) scale(1);
     }
   }
 
@@ -110,27 +110,29 @@
       --section-reveal-y: 56px;
     }
 
-    .apts-section .single-apt > :first-child {
-      opacity: 0;
-      --section-reveal-x: -72px;
-      --section-reveal-y: 0px;
-      transform: translate3d(var(--section-reveal-x), var(--section-reveal-y), 0);
-      animation: sectionRevealScroll 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
-      animation-timeline: view(block);
-      animation-range: entry 24% cover 62%;
-      will-change: transform, opacity;
-    }
+.apts-section .single-apt > :first-child {
+  opacity: 0;
+  --section-reveal-x: -72px;
+  --section-reveal-y: 0px;
+  transform: translate3d(var(--section-reveal-x), var(--section-reveal-y), 0);
+  will-change: transform, opacity;
+}
 
-    .apts-section .single-apt > :last-child {
-      opacity: 0;
-      --section-reveal-x: 72px;
-      --section-reveal-y: 0px;
-      transform: translate3d(var(--section-reveal-x), var(--section-reveal-y), 0);
-      animation: sectionRevealScroll 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
-      animation-timeline: view(block);
-      animation-range: entry 24% cover 62%;
-      will-change: transform, opacity;
-    }
+.apts-section .single-apt > :first-child.revealed {
+  animation: sectionRevealScroll 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.apts-section .single-apt > :last-child {
+  opacity: 0;
+  --section-reveal-x: 72px;
+  --section-reveal-y: 0px;
+  transform: translate3d(var(--section-reveal-x), var(--section-reveal-y), 0);
+  will-change: transform, opacity;
+}
+
+.apts-section .single-apt > :last-child.revealed {
+  animation: sectionRevealScroll 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
 
     .characteristics-section .main-characteristics,
     .characteristics-section .additional-characteristics-layout {

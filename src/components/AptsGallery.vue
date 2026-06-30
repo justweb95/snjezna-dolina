@@ -12,6 +12,8 @@ const props = defineProps({
 const activeIndex = ref(0)
 const isLightboxOpen = ref(false)
 
+let revealObserver = null
+
 const activeImage = computed(() => props.aptGallery[activeIndex.value] ?? null)
 const hasMultipleImages = computed(() => props.aptGallery.length > 1)
 
@@ -66,10 +68,30 @@ const handleKeydown = (event) => {
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown)
+
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed')
+        revealObserver.unobserve(entry.target)
+      }
+    })
+  }, {
+    threshold: 0.25
+  })
+
+  document
+    .querySelectorAll('.apts-section .single-apt > :first-child')
+    .forEach((el) => revealObserver.observe(el))
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('keydown', handleKeydown)
+
+  if (revealObserver) {
+    revealObserver.disconnect()
+  }
+
   document.body.style.overflow = ''
 })
 </script>
@@ -97,18 +119,14 @@ onBeforeUnmount(() => {
       @click="openLightbox"
     >
       <span class="gallery-viewport__overlay">
-        <Transition name="gallery-counter" mode="out-in">
-          <span :key="activeIndex" class="gallery-counter">{{ activeIndex + 1 }} / {{ aptGallery.length }}</span>
-        </Transition>
+      <span name="gallery-counter" :key="activeIndex" class="gallery-counter">{{ activeIndex + 1 }} / {{ aptGallery.length }}</span>
       </span>
-      <Transition name="gallery-fade" mode="out-in">
-        <img
+        <img name="gallery-fade"
           :key="activeImage.src"
           :src="activeImage.src"
           :alt="activeImage.alt"
           class="gallery-image"
         />
-      </Transition>
     </button>
 
     <button
@@ -169,14 +187,12 @@ onBeforeUnmount(() => {
       </button>
 
       <figure class="gallery-lightbox__content">
-        <Transition name="gallery-fade" mode="out-in">
-          <img
+          <img name="gallery-fade"
             :key="activeImage.src"
             :src="activeImage.src"
             :alt="activeImage.alt"
             class="gallery-lightbox__image"
           />
-        </Transition>
       </figure>
 
       <button
